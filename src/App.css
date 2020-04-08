@@ -9,4 +9,8 @@
 
 .main {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-self: start;
+  padding-top: 90px;
 }
