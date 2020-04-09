@@ -43,10 +43,18 @@
   transition: all 0.5s linear;
 }
 
-.menu-item > a:hover {
+/* .menu-item > a:hover {
   color: #000b7b;
 }
 
 .menu-item > a:hover::before {
+  transform: translateX(0);
+} */
+
+.active.menu-item > a {
+  color: #000b7b;
+}
+
+.active.menu-item > a::before {
   transform: translateX(0);
 }

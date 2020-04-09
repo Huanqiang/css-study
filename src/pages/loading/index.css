@@ -23,7 +23,7 @@
   background-color: inherit;
   opacity: 0.5;
 
-  animation: ware 2s linear infinite;
+  animation: ware 3s linear infinite;
 }
 
 .dot:nth-child(1) {
@@ -39,7 +39,7 @@
 }
 
 .dot:nth-child(2)::before {
-  animation-delay: 0.5s;
+  animation-delay: 0.4s;
 }
 
 .dot:nth-child(3) {
@@ -47,7 +47,7 @@
 }
 
 .dot:nth-child(3)::before {
-  animation-delay: 1s;
+  animation-delay: 0.8s;
 }
 
 .dot:nth-child(4) {
@@ -55,7 +55,7 @@
 }
 
 .dot:nth-child(4)::before {
-  animation-delay: 1.5s;
+  animation-delay: 1.2s;
 }
 
 .dot:nth-child(5) {
@@ -63,7 +63,7 @@
 }
 
 .dot:nth-child(5)::before {
-  animation-delay: 2s;
+  animation-delay: 1.6s;
 }
 
 @keyframes ware {
