@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.explain {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  code {
+    background-color: #fff5f5;
+    color: #ff502c;
+    font-size: 0.87em;
+    padding: 0.065em 0.4em;
+  }
+}

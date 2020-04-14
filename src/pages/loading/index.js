@@ -1,12 +1,6 @@
 import React from 'react'
-import './index.css'
+import Panel from '../../components/panel'
+import PageLayout from '../../components/page-layout'
+import Loading from '../../components/loading'
 
-export default () => (
-  <div className='loading'>
-    <div className='dot'></div>
-    <div className='dot'></div>
-    <div className='dot'></div>
-    <div className='dot'></div>
-    <div className='dot'></div>
-  </div>
-)
+export default () => <PageLayout cssAnimation={() => <Loading></Loading>}></PageLayout>

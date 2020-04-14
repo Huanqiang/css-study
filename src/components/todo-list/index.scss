@@ -1,21 +1,21 @@
 .todo {
   width: 300px;
   color: #ffffff;
-  background-color: #12273f;
+  background-color: #3382db;
   border: none;
   font-size: 18px;
 
   &-title {
-    background-color: #214455;
+    background-color: #4db7ce;
     padding: 2px 8px;
     margin-left: 8px;
+    border-radius: 3px;
   }
 
   &-item {
     display: block;
     position: relative;
     line-height: 2.5;
-    // margin: 40px 0;
     font-weight: 500;
     cursor: pointer;
 
@@ -65,7 +65,7 @@
       }
 
       &:checked ~ .label {
-        color: gray;
+        color: #214455;
 
         &::before {
           transform: scaleX(1);
