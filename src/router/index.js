@@ -3,6 +3,7 @@ import About from '../pages/about'
 import Loading from '../pages/loading'
 import BtnHoverShining from '../pages/btn-hover-shining'
 import TodoList from '../pages/todo-list'
+import ProfileCard from '../pages/profile-card'
 
 export default [
   {
@@ -24,6 +25,11 @@ export default [
     path: '/todo_list',
     component: TodoList,
     title: 'Todo控件'
+  },
+  {
+    path: '/profile-card',
+    component: ProfileCard,
+    title: 'ProfileCard'
   },
   {
     path: '/about',

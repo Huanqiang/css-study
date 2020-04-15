@@ -1,0 +1,209 @@
+.card {
+  width: 290px;
+  height: 350px;
+  position: relative;
+  .border {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    &-top {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #484848;
+      transform: translateX(100%);
+      animation: slider-left-to-right ease-in-out 1s;
+    }
+
+    &-left {
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 2px;
+      background-color: #484848;
+      transform: translateY(-100%);
+      animation: slider-top-to-bottom ease-in-out 1s;
+    }
+
+    &-bottom {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #484848;
+      transform: translateX(-100%);
+      animation: slider-right-to-left ease-in-out 1s;
+    }
+
+    &-right {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 2px;
+      background-color: #484848;
+      transform: translateY(100%);
+      animation: slider-bottom-to-top ease-in-out 1s;
+    }
+  }
+
+  &-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #656783;
+    box-shadow: 0 0px 0.6px rgba(0, 0, 0, 0.028), 0 0px 1.3px rgba(0, 0, 0, 0.04), 0 0px 2.5px rgba(0, 0, 0, 0.05),
+      0 0px 4.5px rgba(0, 0, 0, 0.06), 0 0px 8.4px rgba(0, 0, 0, 0.072), 0 0px 20px rgba(0, 0, 0, 0.1);
+
+    transform: scale(0);
+    animation: scale-to-show 0.75s ease-in-out 0.85s forwards;
+
+    // text-align: center;
+    // padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .avatar {
+      margin-top: 40px;
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+        transform: scale(0);
+        animation: scale-to-show 0.75s ease-in-out 1.5s forwards;
+      }
+    }
+
+    .nickname {
+      position: relative;
+      margin-top: 20px;
+      font-size: 26px;
+      letter-spacing: 1.5px;
+      margin-bottom: 40px;
+      color: transparent;
+      animation: nickname-show 0.75s ease-in-out 2s forwards;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-100%);
+        background-color: #2dc0f9;
+        animation: nickname-before-show 0.75s ease-in-out 1.5s forwards;
+      }
+    }
+    .social-types {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+
+.social {
+  width: 25px;
+  height: 25px;
+  background-color: #303f50;
+  padding: 8px;
+  border-radius: 30px;
+  text-align: center;
+  margin: 0px 6px;
+  position: relative;
+  transform: scale(0);
+  animation: scale-to-show 0.5s ease-in-out 2s forwards;
+
+  img {
+    width: 25px;
+    height: 25px;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 41px;
+    height: 41px;
+    background-color: transparent;
+    border-radius: 30px;
+    animation: hidden 0.5s ease-in-out 2s forwards;
+  }
+}
+
+@keyframes slider-right-to-left {
+  50% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slider-left-to-right {
+  50% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slider-bottom-to-top {
+  50% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slider-top-to-bottom {
+  50% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes scale-to-show {
+  from {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes nickname-show {
+  to {
+    color: white;
+  }
+}
+@keyframes nickname-before-show {
+  50% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes hidden {
+  from {
+    background-color: #ffffff;
+  }
+  to {
+    background-color: transparent;
+  }
+}
