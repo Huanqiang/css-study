@@ -1,21 +1,20 @@
 .App {
   /* text-align: center; */
   display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  /* background-color: red; */
 }
 
 .slider {
   margin: 30px 8px 0px;
-  min-width: 150px;
+  width: 260px;
+  /* background-color: aliceblue; */
 }
 
 .main {
-  /* flex: 1;
-  display: flex;
-  justify-content: center;
-  align-self: start; */
-  /* margin: 0 auto; */
-  /* padding-top: 90px; */
   padding: 0px 40px;
   width: 100%;
-  max-width: 900px;
+  max-width: 850px;
+  /* background-color: aqua; */
 }

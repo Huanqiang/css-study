@@ -7,12 +7,12 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
-        <div className='slider'>
+        <div className="slider">
           <Sider></Sider>
         </div>
-        <div className='main'>
+        <div className="main">
           <Main></Main>
         </div>
       </Router>
