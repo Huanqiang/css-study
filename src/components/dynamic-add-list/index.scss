@@ -1,0 +1,16 @@
+.dynamic-list {
+  width: 400px;
+  &-item {
+    position: relative;
+    margin-bottom: 8px;
+    &-operation {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      .ant-btn {
+        margin-right: 8px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import Loading from '../pages/loading'
 import BtnHoverShining from '../pages/btn-hover-shining'
 import TodoList from '../pages/todo-list'
 import ProfileCard from '../pages/profile-card'
+import DynamicAddList from '../pages/dynamic-add-list'
 
 export default [
   {
@@ -35,5 +36,10 @@ export default [
     path: '/about',
     component: About,
     title: 'About'
+  },
+  {
+    path: '/dynamic-add-list',
+    component: DynamicAddList,
+    title: 'DynamicAddList'
   }
 ]
