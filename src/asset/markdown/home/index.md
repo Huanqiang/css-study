@@ -19,3 +19,7 @@ const func = () => {
   console.log('This is a js function')
 }
 ```
+
+## 其他
+
+> 感谢 https://juejin.im/post/5e070cd9f265da33f8653f00

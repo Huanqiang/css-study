@@ -5,7 +5,13 @@
   border: none;
   font-size: 18px;
 
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+
   &-title {
+    width: auto;
     background-color: #4db7ce;
     padding: 2px 8px;
     margin-left: 8px;

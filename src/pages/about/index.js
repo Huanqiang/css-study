@@ -1,5 +1,6 @@
 import React from 'react'
+import Markdown from '../../components/markdown'
+import MarkdownFile from '../../asset/markdown/home/index.md'
 
-export default () => {
-  return '感谢 https://juejin.im/post/5e070cd9f265da33f8653f00 '
-}
+// export default () => 'HOME'
+export default () => <Markdown markdown={MarkdownFile}></Markdown>

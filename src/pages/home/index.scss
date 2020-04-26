@@ -1,0 +1,79 @@
+.home {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../../asset/img/home-background.png);
+
+  &-menu {
+    position: absolute;
+    top: 50%;
+    left: 160px;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+
+    &-top {
+      position: absolute;
+      top: 0px;
+      left: 50%;
+
+      transform: translate(-50%, 20%);
+      width: 170px;
+      height: 170px;
+    }
+
+    &-bottom {
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      width: 170px;
+      height: 170px;
+      transform: translate(-50%, -20%);
+    }
+
+    &-left {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 170px;
+      height: 170px;
+
+      transform: translate(20%, -50%);
+    }
+
+    &-right {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 170px;
+      height: 170px;
+
+      transform: translate(-20%, -50%);
+    }
+
+    .diamond {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      background-color: rgba($color: #ffffff, $alpha: 0.2);
+      transform: rotate(45deg);
+    }
+
+    &-item:hover .diamond {
+      background-color: rgba($color: #ffffff, $alpha: 0.4);
+    }
+
+    &-content {
+      position: absolute;
+      top: 50%;
+      user-select: none;
+      text-align: center;
+    }
+
+    &-item:hover &-content {
+      transform: scale(1.5);
+    }
+  }
+}
