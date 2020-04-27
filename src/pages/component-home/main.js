@@ -1,16 +1,21 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import Home from './home'
+import { Switch, Route, useRouteMatch } from 'react-router-dom'
+import routers from '../../router/component-router'
 
-import routers from '../../router'
+export default () => {
+  let { path } = useRouteMatch()
 
-export default () => (
-  // <div>
-  <Switch>
-    {routers.map(router => (
-      <Route exact path={router.path} key={router.title}>
-        <router.component />
+  return (
+    <Switch>
+      <Route exact path={path}>
+        <Home></Home>
       </Route>
-    ))}
-  </Switch>
-  // </div>
-)
+      {routers.map(router => (
+        <Route path={`${path}${router.path}`} key={router.title}>
+          <router.component />
+        </Route>
+      ))}
+    </Switch>
+  )
+}

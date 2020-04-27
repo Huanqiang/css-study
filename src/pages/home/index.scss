@@ -9,7 +9,7 @@
   &-menu {
     position: absolute;
     top: 50%;
-    left: 160px;
+    left: 150px;
     transform: translateY(-50%);
     width: 500px;
     height: 500px;
@@ -59,21 +59,35 @@
       height: 170px;
       background-color: rgba($color: #ffffff, $alpha: 0.2);
       transform: rotate(45deg);
+      transition: transform 0.15s ease-in-out;
     }
 
     &-item:hover .diamond {
       background-color: rgba($color: #ffffff, $alpha: 0.4);
+      transform: rotate(45deg) scale(1.05);
     }
 
     &-content {
       position: absolute;
       top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       user-select: none;
       text-align: center;
+      transition: transform 0.15s ease-in-out;
+
+      .title {
+        font-size: 17px;
+        color: #484848;
+        display: none;
+      }
     }
 
     &-item:hover &-content {
-      transform: scale(1.5);
+      transform: translate(-50%, -50%) scale(1.25);
+      .title {
+        display: block;
+      }
     }
   }
 }

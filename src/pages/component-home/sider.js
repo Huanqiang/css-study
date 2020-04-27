@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import './sider.css'
-
 /**
  * 获取菜单显示状态
  * @param {*} length
@@ -25,6 +24,8 @@ const RouterItem = ({ title, path, isActive, onChange }) => (
 )
 
 export default withRouter(({ routers, location }) => {
+  let { url } = useRouteMatch()
+
   const [isActives, setIsActives] = useState(
     getMenuStatus(
       routers.length,
@@ -44,7 +45,7 @@ export default withRouter(({ routers, location }) => {
         <RouterItem
           key={router.title}
           title={router.title}
-          path={router.path}
+          path={`${url}${router.path}`}
           isActive={isActives[index]}
           onChange={() => changeActives(index)}></RouterItem>
       ))}
