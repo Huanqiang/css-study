@@ -1,9 +1,8 @@
-import Home from '../pages/component-home/home'
-import Loading from '../pages/loading'
-import BtnHoverShining from '../pages/btn-hover-shining'
-import TodoList from '../pages/todo-list'
-import ProfileCard from '../pages/profile-card'
-import DynamicAddList from '../pages/dynamic-add-list'
+import Loading from '../../pages/components/loading'
+import BtnHoverShining from '../../pages/components/btn-hover-shining'
+import TodoList from '../../pages/components/todo-list'
+import ProfileCard from '../../pages/components/profile-card'
+import DynamicAddList from '../../pages/components/dynamic-add-list'
 
 export default [
   // {

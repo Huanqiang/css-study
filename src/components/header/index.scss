@@ -1,0 +1,27 @@
+.header {
+  // height: 50px;
+  padding: 16px;
+
+  width: 100%;
+  background-color: rgba($color: #ffffff, $alpha: 0.4);
+
+  &-menu {
+    float: right;
+    display: flex;
+    &-item {
+      font-size: 20px;
+      margin: 0px 6px;
+      color: white;
+
+      a {
+        color: white;
+      }
+    }
+  }
+
+  .name {
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: 24px;
+  }
+}

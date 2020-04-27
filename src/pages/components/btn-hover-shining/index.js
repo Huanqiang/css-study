@@ -1,7 +1,7 @@
 import React from 'react'
-import Panel from '../../components/panel'
-import PageLayout from '../../components/page-layout'
-import ShiningBtn from '../../components/btn-hover-shining'
+import Panel from '../../../components/panel'
+import PageLayout from '../../../components/page-layout'
+import ShiningBtn from '../../../components/btn-hover-shining'
 
 export default () => (
   <PageLayout

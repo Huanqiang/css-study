@@ -1,9 +1,8 @@
 import React from 'react'
 import Home from './home'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
-import routers from '../../router/component-router'
 
-export default () => {
+export default ({ routers }) => {
   let { path } = useRouteMatch()
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
-import PageLayout from '../../components/page-layout'
-import Panel from '../../components/panel'
-import TodoList from '../../components/todo-list'
+import PageLayout from '../../../components/page-layout'
+import Panel from '../../../components/panel'
+import TodoList from '../../../components/todo-list'
 
 export default () => (
   <PageLayout
