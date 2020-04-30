@@ -6,5 +6,15 @@ export default [
     title: 'Hello World',
     img: Test,
     content: Home
+  },
+  {
+    title: 'Hello World1',
+    img: Test,
+    content: Home
+  },
+  {
+    title: 'Hello World2',
+    img: Test,
+    content: Home
   }
 ]

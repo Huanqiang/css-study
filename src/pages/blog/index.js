@@ -17,7 +17,9 @@ export default () => {
         <Switch>
           <Route exact path={path}>
             <div className="blog-slider">
-              <Profile></Profile>
+              <div className="profile">
+                <Profile></Profile>
+              </div>
             </div>
             <div className="blog-main">
               {blogs.map(blog => (

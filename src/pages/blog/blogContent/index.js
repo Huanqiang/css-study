@@ -16,7 +16,6 @@ export default () => {
 
       const res = await (await fetch(link)).text()
       const code = getMarkdownHtml(res)
-      const tt = getMarkdownTitles(code)
       setTitles(getMarkdownTitles(code))
       setMarkdown(code)
     }
