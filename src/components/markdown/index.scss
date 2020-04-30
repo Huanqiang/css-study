@@ -1,34 +1,46 @@
 .markdown {
+  color: #000000;
   pre {
     position: relative;
     margin-bottom: 24px;
-    border-radius: 3px;
-    border: 1px solid #c3ccd0;
-    background: #282a35;
     overflow: hidden;
+    border-radius: 6px;
   }
   code {
     display: block;
-    padding: 12px 24px;
+    padding: 12px 20px;
     overflow-y: auto;
     font-weight: 300;
     font-family: Menlo, monospace;
   }
-  code.has-numbering {
-    margin-left: 21px;
+  .hljs ul {
+    list-style: decimal;
+    margin: 0px 0px 0 40px !important;
+    padding: 0px;
   }
-  .pre-numbering {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    padding: 12px 2px 12px 0;
-    border-right: 1px solid #c3ccd0;
-    border-radius: 3px 0 0 3px;
-    background-color: #eee;
-    text-align: right;
-    font-family: Menlo, monospace;
-    font-size: 0.8em;
-    color: #aaa;
+  .hljs ul li {
+    list-style: decimal-leading-zero;
+    padding: 5px !important;
+    // margin: 0 !important;
+    line-height: 14px;
+    word-break: break-all;
+    word-wrap: break-word;
   }
+  // code.has-numbering {
+  //   margin-left: 21px;
+  // }
+  // .pre-numbering {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 20px;
+  //   padding: 12px 2px 12px 0;
+  //   border-right: 1px solid #c3ccd0;
+  //   border-radius: 3px 0 0 3px;
+  //   background-color: #eee;
+  //   text-align: right;
+  //   font-family: Menlo, monospace;
+  //   font-size: 0.8em;
+  //   color: #aaa;
+  // }
 }
