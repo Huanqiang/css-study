@@ -31,7 +31,7 @@ export default () => {
         ))}
       </div>
 
-      <div className="name">Huanqiang's Blog</div>
+      <Link className="name" to='/blog'>Huanqiang's Blog</Link>
     </div>
   )
 }
