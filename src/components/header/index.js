@@ -10,8 +10,8 @@ import './index.scss'
  */
 const RouterItem = ({ title, path, Icon, style }) => (
   <div className="header-menu-item" style={style}>
-    <Icon style={{ margin: '4px' }} />
     <Link to={path} style={style}>
+      <Icon style={{ margin: '4px' }} />
       {title}
     </Link>
   </div>
@@ -31,7 +31,9 @@ export default () => {
         ))}
       </div>
 
-      <Link className="name" to='/blog'>Huanqiang's Blog</Link>
+      <Link className="name" to="/blog">
+        Huanqiang's Blog
+      </Link>
     </div>
   )
 }

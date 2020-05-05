@@ -12,6 +12,11 @@
     rgba(7, 179, 155, 0.1) 86%,
     rgba(109, 186, 130, 0.1) 100%
   );
+  header {
+    background-image: url(../../asset//img/header.jpg);
+    height: 390px;
+    background-size: cover;
+  }
   &-container {
     display: flex;
     width: 1200px;

@@ -14,7 +14,9 @@ export default () => {
 
   return (
     <div className="blog">
-      <Header></Header>
+      <header>
+        <Header></Header>
+      </header>
       <div className="blog-container">
         <Switch>
           <Route exact path={path}>
