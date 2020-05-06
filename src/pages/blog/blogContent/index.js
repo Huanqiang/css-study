@@ -25,7 +25,6 @@ export default () => {
   return (
     <div className="blog-content-container">
       <div className="blog-content-slider">
-        <div className="blog-content-slider-title">目录</div>
         <BlogMenu titles={titles}></BlogMenu>
       </div>
       <div className="blog-content-main">

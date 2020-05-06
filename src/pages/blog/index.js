@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 import Profile from '../../components/profile-card'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import BlogContent from './blogContent'
@@ -40,6 +41,7 @@ export default () => {
           </Route>
         </Switch>
       </div>
+      <Footer></Footer>
     </div>
   )
 }

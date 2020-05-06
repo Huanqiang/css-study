@@ -22,6 +22,7 @@ const MenuItem = ({ title, level }) => {
 export default ({ titles = [] }) => {
   return (
     <div className="blog-content-menu">
+      <div className="blog-content-menu-title">目录</div>
       {titles.map(title => (
         <MenuItem title={title} level={0} key={title.id}></MenuItem>
       ))}
