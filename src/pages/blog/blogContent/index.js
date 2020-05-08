@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Markdown, { getMarkdownHtml, getTitles as getMarkdownTitles } from '../../../components/markdown'
 import BlogMenu from './blogMenu'
-import blogs from '../../../asset/markdown'
+import blogs from '../../../markdown'
 import './index.scss'
 
 export default () => {

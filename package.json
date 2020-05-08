@@ -30,7 +30,7 @@
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.3.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "highlight.js": "^9.18.1",
     "html-webpack-plugin": "4.0.0-beta.11",
     "identity-obj-proxy": "3.0.0",
@@ -72,7 +72,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "publish": "gh-pages -b master -d build -r git@github.com:Huanqiang/Huanqiang.github.io.git",
-    "deploy": "yarn run build && yarn run publish"
+    "deploy:pre": "node ./scripts/pre-deploy.js",
+    "deploy": "yarn run build && yarn run deploy:pre && yarn run publish"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -145,6 +146,8 @@
     ]
   },
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "gh-pages": "^2.2.0"
   }
 }

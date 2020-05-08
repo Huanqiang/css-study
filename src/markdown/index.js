@@ -1,5 +1,5 @@
-import Test from '../../asset/img/bg.jpg'
-import Home from './home/index.md'
+import Test from '../asset/img/bg.jpg'
+import Home from './index.md'
 
 export default [
   {

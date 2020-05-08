@@ -5,7 +5,7 @@ import Profile from '../../components/profile-card'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import BlogContent from './blogContent'
 import BlogBriefItem from './blogBriefItem'
-import blogs from '../../asset/markdown'
+import blogs from '../../markdown'
 import './index.scss'
 
 import config from '../../config'

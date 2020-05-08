@@ -12,6 +12,7 @@
 - [ ] 打包性能优化（bundle 拆分）
 - [ ] 部署脚本优化（需要看一下 npm run build）
 - [ ] blog 看了多少，还剩多少功能
+- [ ] 评论功能：https://github.com/gitalk/gitalk#install
 
 ## 配置信息
 
