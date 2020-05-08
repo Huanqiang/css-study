@@ -8,9 +8,8 @@
 - [ ] blog 头图 及 header 随着页面滚动而移动
 - [x] 菜单栏
 - [ ] 回到最上方按钮
-- [ ] blog 加载 markdown 的性能优化和加载效果
-- [ ] 打包性能优化（bundle 拆分）
-- [ ] 部署脚本优化（需要看一下 npm run build）
+- [x] blog 加载 markdown 的性能优化
+- [x] 部署脚本优化(基于 gh-pages 进行发布操作)
 - [ ] blog 看了多少，还剩多少功能
 - [ ] 评论功能：https://github.com/gitalk/gitalk#install
 
