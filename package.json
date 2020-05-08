@@ -71,8 +71,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
+    "build:blog": "node scripts/build-blog.js",
     "publish": "gh-pages -b master -d build -r git@github.com:Huanqiang/Huanqiang.github.io.git",
-    "deploy:pre": "node ./scripts/pre-deploy.js",
+    "deploy:pre": "node scripts/pre-deploy.js",
     "deploy": "yarn run build && yarn run deploy:pre && yarn run publish"
   },
   "eslintConfig": {
@@ -148,6 +149,7 @@
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "glob": "^7.1.6"
   }
 }

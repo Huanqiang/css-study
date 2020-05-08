@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { transformToString } from '../../components/markdown'
 
 export default ({ url, img, title, content }) => {
   const [blog, setBlog] = useState('')
   useEffect(() => {
-    fetch(content)
-      .then(res => res.text())
-      .then(text => setBlog(text))
-  })
+    // fetch(content)
+    //   .then(res => res.text())
+    //   .then(text => setBlog(text))
+    setBlog(transformToString(content))
+  }, [content])
 
   return (
     <Link to={`${url}/${title}`}>

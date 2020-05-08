@@ -20,7 +20,7 @@ Marked.setOptions({
 })
 
 // 这里为代码的每一行增加了 li，然后使用css样式 list-style: decimal; 来增加数字
-const addLineNumber = code => {
+export const addLineNumber = code => {
   const dom = new DOMParser().parseFromString(code, 'text/html')
   const codes = dom.querySelectorAll('pre code')
 
@@ -80,6 +80,18 @@ export const getTitles = code => {
   return titles
 }
 
+export const transformToString = code => {
+  let innerHTML = ''
+  const dom = new DOMParser().parseFromString(code, 'text/html')
+  let node = dom.body.firstElementChild
+  while (node) {
+    innerHTML += node.innerText.replace(/\n/g, '')
+    node = node.nextElementSibling
+  }
+
+  return innerHTML
+}
+
 export const getMarkdownHtml = code => addLineNumber(Marked(code))
 
 export default ({ link = null, markdown = '' }) => {
@@ -94,6 +106,6 @@ export default ({ link = null, markdown = '' }) => {
       setMarkdownHtml(code)
     }
     link && getData(link)
-  })
+  }, [link])
   return <div className="markdown" dangerouslySetInnerHTML={{ __html: markdownHtml }}></div>
 }

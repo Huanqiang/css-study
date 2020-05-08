@@ -17,8 +17,8 @@
 ## 配置信息
 
 1. 个人配置信息在 `src/config/profile.js` 文件中；
-2. 博客可写在 `src/asset/markdown` 文件夹中，然后在 `src/asset/markdown/index.js` 中进行引入；
+2. 博客可写在 `src/markdown` 文件夹中，然后执行 `yarn build:blog` 将 markdown 编译成包含 html 的 json 文件，最后在 `src/markdown/index.js` 中进行引入 json 文件；
 
 ## 博客发布
 
-将工程进行编译（`npm run build`），然后上传至 github 的 github.io 仓库中即可；
+执行命令 `yarn deploy`，即可将工程进行编译，然后上传至 github 的 github.io 仓库中即可；

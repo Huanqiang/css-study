@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Markdown, { getMarkdownHtml, getTitles as getMarkdownTitles } from '../../../components/markdown'
+import Markdown, { addLineNumber, getTitles as getMarkdownTitles } from '../../../components/markdown'
 import BlogMenu from './blogMenu'
 import blogs from '../../../markdown'
 import './index.scss'
@@ -11,16 +11,19 @@ export default () => {
   let { title } = useParams()
 
   useEffect(() => {
-    const getData = async () => {
-      const link = blogs.find(blog => blog.title === title).content
+    // const getData = async () => {
+    //   const link = blogs.find(blog => blog.title === title).content
 
-      const res = await (await fetch(link)).text()
-      const code = getMarkdownHtml(res)
-      setTitles(getMarkdownTitles(code))
-      setMarkdown(code)
-    }
-    getData()
-  }, [markdown, title])
+    //   const res = await (await fetch(link)).text()
+    //   const code = getMarkdownHtml(res)
+    //   setTitles(getMarkdownTitles(code))
+    //   setMarkdown(code)
+    // }
+    // getData()
+    const content = blogs.find(blog => blog.title === title).content
+    setMarkdown(addLineNumber(content))
+    setTitles(getMarkdownTitles(content))
+  }, [title])
 
   return (
     <div className="blog-content-container">

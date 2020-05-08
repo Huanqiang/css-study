@@ -20,10 +20,12 @@ const copyIndexHtml = (routes = []) => {
 }
 
 const getBlogRoutes = url => {
-  const blogsStr = fs
-    .readFileSync(url, 'utf8')
-    .split('export default ')[1]
-    .replace(/[\n\[\]\{\}]/g, '')
+  // const blogsStr = fs
+  //   .readFileSync(url, 'utf8')
+  //   .split('export default ')[1]
+  //   .replace(/[\n\[\]\{\}]/g, '')
+  const blogsStr = fs.readFileSync(url, 'utf8').split('export default ')[1].replace(/[ \n]/g, '')
+  console.log(blogsStr)
   return blogsStr
     .split(',')
     .map(item => item.trim())
@@ -32,5 +34,6 @@ const getBlogRoutes = url => {
     .map(item => 'blog/' + item)
 }
 
-copyIndexHtml(routes)
-copyIndexHtml(getBlogRoutes(MARKDOWN_URL))
+// copyIndexHtml(routes)
+// copyIndexHtml(getBlogRoutes(MARKDOWN_URL))
+getBlogRoutes(MARKDOWN_URL)
