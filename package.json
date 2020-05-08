@@ -71,7 +71,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "deploy": "sh ./script/deploy.sh"
+    "publish": "gh-pages -b master -d build -r git@github.com:Huanqiang/Huanqiang.github.io.git",
+    "deploy": "yarn run build && yarn run publish"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -142,5 +143,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }

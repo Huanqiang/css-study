@@ -1,4 +1,4 @@
-import Test from '../../asset/img/home-background.png'
+import Test from '../../asset/img/bg.jpg'
 import Home from './home/index.md'
 
 export default [
@@ -9,7 +9,7 @@ export default [
   },
   {
     title: 'Hello World1',
-    img: Test,
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed@V1.001/img/20200507193520.jpg',
     content: Home
   },
   {

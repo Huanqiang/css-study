@@ -5,7 +5,7 @@ import './index.scss'
 export default () => {
   return (
     <div className="footer">
-      <div>2020 - 2020 | Copyright © Huanqiang </div>
+      <div>Copyright © 2020 by Huanqiang </div>
     </div>
   )
 }

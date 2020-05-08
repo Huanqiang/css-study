@@ -4,6 +4,8 @@ import { BookOutlined, PartitionOutlined, ExclamationCircleOutlined, QuestionCir
 import { Link } from 'react-router-dom'
 // import { withRouter } from 'react-router'
 
+import config from '../../config'
+
 const MenuItem = ({ className, Icon, title, path }) => {
   return (
     <Link to={path}>
@@ -20,7 +22,7 @@ const MenuItem = ({ className, Icon, title, path }) => {
 
 // export default () => 'HOME'
 export default () => (
-  <div className="home">
+  <div className="home" style={{ backgroundImage: `url(${config.homebg})` }}>
     <div className="home-menu">
       <MenuItem className="home-menu-top" Icon={BookOutlined} title="博客" path="/blog"></MenuItem>
       <MenuItem className="home-menu-left" Icon={PartitionOutlined} title="组件" path="/components"></MenuItem>

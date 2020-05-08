@@ -8,14 +8,14 @@ import BlogBriefItem from './blogBriefItem'
 import blogs from '../../asset/markdown'
 import './index.scss'
 
-import profile from '../../config/profile'
+import config from '../../config'
 
 export default () => {
   let { url, path } = useRouteMatch()
 
   return (
     <div className="blog">
-      <header>
+      <header style={{ backgroundImage: `url(${config.headerbg})` }}>
         <Header></Header>
       </header>
       <div className="blog-container">
@@ -24,10 +24,10 @@ export default () => {
             <div className="blog-slider">
               <div className="profile">
                 <Profile
-                  img={profile.avator}
-                  name={profile.nickName}
-                  intro={profile.intro}
-                  socials={profile.socials}></Profile>
+                  img={config.user.avator}
+                  name={config.user.nickName}
+                  intro={config.user.intro}
+                  socials={config.user.socials}></Profile>
               </div>
             </div>
             <div className="blog-main">
