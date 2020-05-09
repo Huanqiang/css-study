@@ -11,6 +11,8 @@
 # production
 /build
 
+github.json
+
 # misc
 .DS_Store
 .env.local

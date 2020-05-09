@@ -1,10 +1,12 @@
 import React from 'react'
-import Header from '../../components/header'
-import Footer from '../../components/footer'
-import Profile from '../../components/profile-card'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import BlogContent from './blogContent'
 import BlogBriefItem from './blogBriefItem'
+import GoToTop from '../../components/to-top'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
+import Profile from '../../components/profile-card'
+
 import blogs from '../../markdown'
 import './index.scss'
 
@@ -42,6 +44,7 @@ export default () => {
         </Switch>
       </div>
       <Footer></Footer>
+      <GoToTop></GoToTop>
     </div>
   )
 }

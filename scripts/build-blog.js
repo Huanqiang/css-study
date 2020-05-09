@@ -51,6 +51,7 @@ const uploadImage = async (name, url) => {
     })
     return response.ok
   } catch (error) {
+    console.log(error)
     return false
   }
 }
@@ -69,31 +70,36 @@ glob(localAddress + '*/*.md', {}, function (err, files) {
 
   Promise.all(
     files.map(file => {
-      return new Promise((resolve, reject) => {
+      return new Promise(async (resolve, reject) => {
         console.log(`正在处理文件 ${file}`)
 
         let markdown = fs.readFileSync(file, 'utf8')
         const imagePaths = getLocalImages(markdown)
 
-        imagePaths.forEach(async imgPath => {
-          const imgName = path.basename(imgPath)
-          // fs.copySync(
-          //   path.join(path.dirname(file), imgName),
-          //   path.join('build/blog', path.dirname(file).replace(localAddress, ''), imgName)
-          // )
-          const result = uploadImage(imgName, path.dirname(file))
-          if (result) {
-            markdown = markdown.replace(imgPath, remoteAddress + imgName)
+        Promise.all(
+          imagePaths.map(imgPath => {
+            return new Promise(async (resolve, reject) => {
+              const imgName = path.basename(imgPath)
+              // fs.copySync(
+              //   path.join(path.dirname(file), imgName),
+              //   path.join('build/blog', path.dirname(file).replace(localAddress, ''), imgName)
+              // )
+              const result = await uploadImage(imgName, path.dirname(file))
+              if (result) {
+                markdown = markdown.replace(imgPath, remoteAddress + imgName)
+              }
+              resolve()
+            })
+          })
+        ).then(data => {
+          if (imagePaths.length !== 0) {
+            fs.writeFileSync(file, markdown, 'utf-8')
           }
+
+          const html = Marked(markdown)
+          const htmlName = file.replace(path.extname(file), '.json')
+          fs.writeFileSync(htmlName, JSON.stringify({ content: html }), 'utf-8')
         })
-
-        if (imagePaths.length !== 0) {
-          fs.writeFileSync(file, markdown, 'utf-8')
-        }
-
-        const html = Marked(markdown)
-        const htmlName = file.replace(path.extname(file), '.json')
-        fs.writeFileSync(htmlName, JSON.stringify({ content: html }), 'utf-8')
       })
     })
   )
