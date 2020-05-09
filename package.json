@@ -150,6 +150,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "gh-pages": "^2.2.0",
-    "glob": "^7.1.6"
+    "glob": "^7.1.6",
+    "node-fetch": "^2.6.0"
   }
 }

@@ -16,7 +16,8 @@
 ## 配置信息
 
 1. 个人配置信息在 `src/config/profile.js` 文件中；
-2. 博客可写在 `src/markdown` 文件夹中，然后执行 `yarn build:blog` 将 markdown 编译成包含 html 的 json 文件，最后在 `src/markdown/index.js` 中进行引入 json 文件；
+2. 在 `github.json` 文件中配置图床信息；
+3. 博客可写在 `src/markdown` 文件夹中，然后执行 `yarn build:blog` 将 markdown 编译成包含 html 的 json 文件，最后在 `src/markdown/index.js` 中进行引入 json 文件，在执行 `yarn build:blog` 时，会将 md 中的本地图片自动上传至你指定的 github 仓库中，并修改相应的 md 文件；
 
 ## 博客发布
 

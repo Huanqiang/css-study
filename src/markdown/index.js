@@ -1,5 +1,6 @@
 import Test from '../asset/img/bg.jpg'
 import Home from './home/index.json'
+import localtion from './location/localtion.json'
 
 export default [
   {
@@ -8,9 +9,9 @@ export default [
     content: Home.content
   },
   {
-    title: 'Hello World1',
+    title: 'localtion',
     img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed@V1.001/img/20200507193520.jpg',
-    content: Home.content
+    content: localtion.content
   },
   {
     title: 'Hello World2',

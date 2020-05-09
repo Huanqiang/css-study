@@ -5,13 +5,29 @@
     margin-bottom: 24px;
     overflow: hidden;
     border-radius: 6px;
+    code {
+      // display: block;
+      padding: 12px 20px;
+      overflow-y: auto;
+      font-weight: 300;
+      font-family: Menlo, monospace;
+    }
   }
-  code {
-    display: block;
-    padding: 12px 20px;
+  code:not(.hljs) {
+    // display: block;
+    // padding: 12px 20px;
+    // background-color: #fff5f5;
+    color: #ff502c;
+    font-size: 0.87em;
+    padding: 0.065em 0.4em;
     overflow-y: auto;
     font-weight: 300;
     font-family: Menlo, monospace;
+  }
+  p {
+    img {
+      width: 100%;
+    }
   }
   .hljs ul {
     list-style: decimal;
