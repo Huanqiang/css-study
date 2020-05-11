@@ -29,6 +29,12 @@
       width: 100%;
     }
   }
+  blockquote {
+    color: gray;
+    border-left: 2px #777891 solid;
+    padding-left: 8px;
+  }
+
   .hljs ul {
     list-style: decimal;
     margin: 0px 0px 0 40px !important;

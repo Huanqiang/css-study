@@ -25,7 +25,7 @@
 - `reload()` : 重新加载当前页；
 - `toString()`: 输出 href；
 
-> 此外还有一种 url 跳转方法： window.location.href = url
+> 此外还有一种 url 跳转方法： `window.location.href = url`
 
 ### 写法
 

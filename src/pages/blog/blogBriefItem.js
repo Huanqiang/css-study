@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { transformToString } from '../../components/markdown'
+import defaultImage from '../../asset/img/image-error.png'
 
-export default ({ url, img, title, content }) => {
+const Image = ({ img, title }) => {
+  const [imgSrc, setImgSrc] = useState('')
+  useEffect(() => {
+    setImgSrc(img)
+  }, [img])
+
+  return (
+    <div className="blog-item-image">
+      <img src={imgSrc} alt={title} onError={() => setImgSrc(defaultImage)}></img>
+    </div>
+  )
+}
+
+export default ({ url, img, title, content, imagePosition = 'left' }) => {
   const [blog, setBlog] = useState('')
   useEffect(() => {
     // fetch(content)
@@ -14,13 +28,12 @@ export default ({ url, img, title, content }) => {
   return (
     <Link to={`${url}/${title}`}>
       <div className="blog-item">
-        <div className="blog-item-image">
-          <img src={img} alt={title}></img>
-        </div>
+        {imagePosition === 'left' && <Image img={img} title={title}></Image>}
         <div className="blog-item-brief">
           <div className="title">{title}</div>
           <div className="content">{blog}</div>
         </div>
+        {imagePosition === 'right' && <Image img={img} title={title}></Image>}
       </div>
     </Link>
   )

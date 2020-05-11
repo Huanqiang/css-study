@@ -33,8 +33,12 @@ export default () => {
               </div>
             </div>
             <div className="blog-main">
-              {blogs.map(blog => (
-                <BlogBriefItem {...blog} url={url} key={blog.title}></BlogBriefItem>
+              {blogs.map((blog, index) => (
+                <BlogBriefItem
+                  {...blog}
+                  url={url}
+                  key={blog.title}
+                  imagePosition={index % 2 === 0 ? 'left' : 'right'}></BlogBriefItem>
               ))}
             </div>
           </Route>
