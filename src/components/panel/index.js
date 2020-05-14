@@ -12,10 +12,10 @@ export default ({ title, children, width, style }) => {
 
   return (
     <div className="panel" style={selfStyle}>
-      <header className="title">
+      <div className="title">
         {title}
         <div className={isShowBody ? 'icon active' : 'icon'} onClick={() => setIsShowBody(!isShowBody)}></div>
-      </header>
+      </div>
       {/* {isShowBody ? <section style={{display: }}>{children()}</section> : null} */}
       {/* <section style={{ display: isShowBody ? 'block' : 'none' }}>{children()}</section> */}
       <section className={isShowBody ? '' : 'hidden'}>{children()}</section>

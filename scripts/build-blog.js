@@ -26,7 +26,7 @@ const markdownImageRex = /!\[([^\[\]]*)\]\(([^\[\]]*\.(jpg|bmp|gif|ico|pcx|jpeg|
 const ImageRex = /[^\[\]\(\)]*\.(jpg|bmp|gif|ico|pcx|jpeg|tif|png|raw|tga)/
 const httpRex = /(http|https):/
 const localAddress = 'src/markdown/'
-const remoteAddress = `https://raw.githubusercontent.com/${config.githubName}/${config.repo}/master/blog/`
+const remoteAddress = `https://cdn.jsdelivr.net/gh/${config.githubName}/${config.repo}/blog/`
 const imgBedUrl = `https://api.github.com/repos/${config.githubName}/${config.repo}/contents/blog/`
 const githubToken = config.token
 
@@ -49,6 +49,9 @@ const uploadImage = async (name, url) => {
         content: image.toString('base64')
       })
     })
+    if (!response.ok) {
+      console.log(response)
+    }
     return response.ok
   } catch (error) {
     console.log(error)

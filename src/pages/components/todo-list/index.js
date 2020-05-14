@@ -3,9 +3,11 @@ import PageLayout from '../../../components/page-layout'
 import Panel from '../../../components/panel'
 import TodoList from '../../../components/todo-list'
 
+export const Animation = () => <TodoList></TodoList>
+
 export default () => (
   <PageLayout
-    cssAnimation={() => <TodoList></TodoList>}
+    cssAnimation={() => <Animation></Animation>}
     explain={() => (
       <>
         <Panel

@@ -2,7 +2,7 @@
 
 > 整理自 [window.location Cheatsheet](https://dev.to/samanthaming/window-location-cheatsheet-4edl)
 
-![56ouoyj064f18ltbnjxy](https://raw.githubusercontent.com/Huanqiang/imgBed/master/blog/56ouoyj064f18ltbnjxy.png)
+![56ouoyj064f18ltbnjxy](https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/blog/56ouoyj064f18ltbnjxy.png)
 
 ### 属性
 
