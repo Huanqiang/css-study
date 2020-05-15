@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Markdown, { addLineNumber, getTitles as getMarkdownTitles } from '../../../components/markdown'
 import BlogMenu from './blogMenu'
+import Comment from './comment'
+
 import blogs from '../../../markdown'
 import './index.scss'
 
@@ -32,6 +34,7 @@ export default () => {
       </div>
       <div className="blog-content-main">
         <Markdown markdown={markdown}></Markdown>
+        <Comment></Comment>
       </div>
     </div>
   )

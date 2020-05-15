@@ -26,6 +26,20 @@
    > }
    > ```
 
+   > 这里的 token 不能上传至 github 上，上传了会被自动删除
+
+3. 评论配置，请参照 [为博客添加 Gitalk 评论插件](https://zhuanlan.zhihu.com/p/81270400) 申请 GitHub OAuth application，然后在 `src/config/comment.json` 文件配置一下信息；
+
+   > ```json
+   > {
+   >   "commentClientID": "GitHub Application Client ID",
+   >   "commentClientSecret": "GitHub Application Client Secret",
+   >   "commentRepo": "存储你评论 issue 的 Github 仓库名",
+   >   "owner": "Huanqiang",
+   >   "admin": ["这个仓库的管理员"]
+   > }
+   > ```
+
 ## 写博客
 
 1. 博客可写在 `src/markdown` 文件夹中；
