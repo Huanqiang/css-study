@@ -44,12 +44,12 @@ const getTitle = (tag, id, label) => {
  * 获取目录
  * @param {*} markdown 生成的 html 源码
  */
-export const getTitles = code => {
+export const getTitles = (code, titleHs = titleHtmls) => {
   const titles = []
   const dom = new DOMParser().parseFromString(code, 'text/html')
   let node = dom.body.firstElementChild
   while (node) {
-    const titleIndex = titleHtmls.indexOf(node.tagName.toLowerCase())
+    const titleIndex = titleHs.indexOf(node.tagName.toLowerCase())
     if (titleIndex !== -1) {
       if (titles.length === 0) {
         titles.push(getTitle(node.tagName, node.id, node.innerHTML))

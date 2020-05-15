@@ -22,7 +22,7 @@ export default () => {
     // getData()
     const content = blogs.find(blog => blog.title === title).content
     setMarkdown(addLineNumber(content))
-    setTitles(getMarkdownTitles(content))
+    setTitles(getMarkdownTitles(content, ['h2', 'h3']))
   }, [title])
 
   return (
