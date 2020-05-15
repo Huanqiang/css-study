@@ -17,8 +17,6 @@
     overflow: hidden;
     position: sticky;
     top: 16px;
-    padding-left: 8px;
-    padding-right: 8px;
 
     background-color: rgba($color: #ffffff, $alpha: 0.8);
     border-radius: 6px;
@@ -30,15 +28,28 @@
       margin-top: 8px;
     }
 
+    &-body {
+      padding-left: 8px;
+      padding-right: 8px;
+      font-size: 14px;
+    }
+
     &-item {
       position: relative;
       padding-top: 2px;
       padding-bottom: 2px;
-      font-size: 14px;
       overflow: hidden; //超出的文本隐藏
       white-space: nowrap;
       text-overflow: ellipsis; //溢出用省略号显示
       cursor: pointer;
+
+      &.level1 {
+        padding-left: 16px;
+      }
+
+      &.level2 {
+        padding-left: 32px;
+      }
 
       &:hover {
         background-color: #e8e8e8;
@@ -53,11 +64,16 @@
         background-color: #546c74;
         border-radius: 3px;
       }
-    }
-    .active {
-      background-color: #e8e8e8;
-      &::before {
-        background-color: #67a6c7;
+
+      &.level2::before {
+        left: 20px;
+      }
+
+      &.active {
+        background-color: #e8e8e8;
+        &::before {
+          background-color: #67a6c7;
+        }
       }
     }
   }

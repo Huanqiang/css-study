@@ -5,13 +5,13 @@
 ## 功能
 
 - [x] 路由导航
-- [ ] blog 头图 及 header 随着页面滚动而移动
+- [x] blog 头图 及 header 随着页面滚动而移动
 - [x] 菜单栏
-- [ ] 回到最上方按钮
+- [x] 回到最上方按钮
 - [x] blog 加载 markdown 的性能优化
 - [x] 部署脚本优化(基于 gh-pages 进行发布操作)
 - [ ] blog 看了多少，还剩多少功能
-- [ ] 评论功能： > [https://github.com/gitalk/gitalk#install](https://github.com/gitalk/gitalk#install)
+- [x] 评论功能： > [https://github.com/gitalk/gitalk#install](https://github.com/gitalk/gitalk#install)
 
 ## 配置信息
 
