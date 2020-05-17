@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Marked from 'marked'
 import hljs from 'highlight.js'
+import utils from './utils'
+
 import 'highlight.js/styles/atom-one-dark.css'
 import './index.scss'
 
@@ -19,14 +21,38 @@ Marked.setOptions({
   langPrefix: 'hljs '
 })
 
+const setImageClassName = dom => {
+  let node = dom.body.firstElementChild
+  while (node) {
+    if (
+      node.tagName === 'P' &&
+      node.childNodes[0].tagName === 'IMG' &&
+      !utils.hasClass(node, 'markdown-img-container')
+    ) {
+      node.classList.add('markdown-img-container')
+    }
+    node = node.nextElementSibling
+  }
+
+  return dom
+}
+
 // 这里为代码的每一行增加了 li，然后使用css样式 list-style: decimal; 来增加数字
-export const addLineNumber = code => {
-  const dom = new DOMParser().parseFromString(code, 'text/html')
+const addLineNumber = dom => {
   const codes = dom.querySelectorAll('pre code')
 
   codes.forEach(code => {
     code.innerHTML = '<ul><li>' + code.innerHTML.replace(/\n/g, '\n</li><li>') + '\n</li></ul>'
   })
+  return dom
+}
+
+export const handleMarkdownStyle = code => {
+  let dom = new DOMParser().parseFromString(code, 'text/html')
+  dom = addLineNumber(dom)
+  // console.log('addLineNumber', dom)
+  dom = setImageClassName(dom)
+  // console.log('setImageClassName', dom)
   return dom.body.innerHTML
 }
 
@@ -80,6 +106,10 @@ export const getTitles = (code, titleHs = titleHtmls) => {
   return titles
 }
 
+/**
+ * 获取 html 中的innerHtml
+ * @param {*} code
+ */
 export const transformToString = code => {
   let innerHTML = ''
   const dom = new DOMParser().parseFromString(code, 'text/html')
@@ -92,7 +122,7 @@ export const transformToString = code => {
   return innerHTML
 }
 
-export const getMarkdownHtml = code => addLineNumber(Marked(code))
+export const getMarkdownHtml = code => handleMarkdownStyle(Marked(code))
 
 export default ({ link = null, markdown = '' }) => {
   const [markdownHtml, setMarkdownHtml] = useState('')
@@ -102,7 +132,7 @@ export default ({ link = null, markdown = '' }) => {
   useEffect(() => {
     const getData = async link => {
       const res = await (await fetch(link)).text()
-      const code = addLineNumber(Marked(res))
+      const code = handleMarkdownStyle(Marked(res))
       setMarkdownHtml(code)
     }
     link && getData(link)

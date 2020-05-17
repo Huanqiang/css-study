@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Markdown, { addLineNumber, getTitles as getMarkdownTitles } from '../../../components/markdown'
+import Markdown, { handleMarkdownStyle, getTitles as getMarkdownTitles } from '../../../components/markdown'
 import BlogMenu from './blogMenu'
 import Comment from './comment'
 
@@ -23,7 +23,7 @@ export default () => {
     // }
     // getData()
     const content = blogs.find(blog => blog.title === title).content
-    setMarkdown(addLineNumber(content))
+    setMarkdown(handleMarkdownStyle(content))
     setTitles(getMarkdownTitles(content, ['h2', 'h3']))
   }, [title])
 
