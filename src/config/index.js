@@ -4,8 +4,8 @@ import Github from '../asset/img/github.png'
 import Weibo from '../asset/img/wb.png'
 
 export default {
-  homebg: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed@V1.001/img/20200507192449.png',
-  headerbg: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed@V1.001/img/20200507193003.jpg',
+  homebg: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200518200705.png',
+  headerbg: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200518200704.jpg',
   user: {
     blogName: `Huanqiang's blog`,
     nickName: `Huanqiang`,
@@ -16,5 +16,12 @@ export default {
       { type: 'email', img: Email, url: 'mailto:huanqiang@124.com' },
       { type: 'weibo', img: Weibo, url: 'https://weibo.com/u/6076963078/home' }
     ]
+  },
+  comment: {
+    clientID: '68ff52908f51f0d25952',
+    clientSecret: '74d6e0218ebc9c1f6ebd3659480abc1a03bae388',
+    repo: 'blog-comment',
+    owner: 'Huanqiang',
+    admin: ['Huanqiang']
   }
 }

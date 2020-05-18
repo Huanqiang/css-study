@@ -1,0 +1,12 @@
+.read-progress-bar {
+  margin: 8px;
+  overflow: hidden;
+  font-size: smaller;
+
+  .progress-bar {
+    height: 2px;
+    background-color: red;
+    background-image: linear-gradient(to right, #8e44ad, #c0392b, #f16529);
+    transition: transform 0.75s ease-in-out;
+  }
+}

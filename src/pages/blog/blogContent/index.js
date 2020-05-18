@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import Markdown from '../../../components/markdown'
 import BlogMenu from './blogMenu'
@@ -20,7 +20,7 @@ export default () => {
   return (
     <div className="blog-content-container">
       <div className="blog-content-slider">
-        <BlogMenu titles={titles}></BlogMenu>
+        <BlogMenu titles={titles} readProcess={scrollProcess}></BlogMenu>
       </div>
       <div className="blog-content-main">
         <Markdown markdown={content}></Markdown>

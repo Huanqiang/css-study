@@ -5,7 +5,7 @@ import bfc from './BFC/BFC.json'
 export default [
   {
     title: 'Hello World',
-    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200507193520.jpg',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200518200703.jpg',
     content: Home.content
   },
   {
@@ -15,7 +15,7 @@ export default [
   },
   {
     title: '带你彻底了解BFC',
-    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200507193520.jpg',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200518200724.jpg',
     content: bfc.content
   }
 ]

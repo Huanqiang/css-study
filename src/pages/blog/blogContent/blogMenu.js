@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-
+import ReadProgressBar from '../../../components/read-progress-bar'
 import useActiveMenu from '../../../hooks/useActiveMenu'
 
 import './index.scss'
@@ -15,10 +15,7 @@ const MenuItem = ({ title, id, level, active }) => {
 
   return (
     <div>
-      <div
-        className={`blog-content-menu-item level${level} ${active === id ? 'active' : ''}`}
-        // style={{ paddingLeft: `${16 * level}px` }}
-        onClick={gotoPosition}>
+      <div className={`blog-content-menu-item level${level} ${active === id ? 'active' : ''}`} onClick={gotoPosition}>
         {title.label}
       </div>
       {level <= 1 &&
@@ -29,12 +26,13 @@ const MenuItem = ({ title, id, level, active }) => {
   )
 }
 
-export default ({ titles = [] }) => {
+export default ({ titles = [], readProcess = 0 }) => {
   const activeMenu = useActiveMenu(['h2', 'h3'])
 
   return (
     <div className="blog-content-menu">
       <div className="blog-content-menu-title">目录</div>
+      <ReadProgressBar readProcess={readProcess}></ReadProgressBar>
       <div className="blog-content-menu-body">
         {titles.map(title => (
           <MenuItem title={title} id={title.id} active={activeMenu} level={1} key={title.id}></MenuItem>
