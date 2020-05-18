@@ -55,56 +55,6 @@ export const handleMarkdownStyle = code => {
   return dom.body.innerHTML
 }
 
-const titleHtmls = ['h1', 'h2', 'h3', 'h4', 'h5']
-const getTitle = (tag, id, label) => {
-  return {
-    tag,
-    id,
-    label,
-    children: []
-  }
-}
-
-/**
- * 获取目录
- * @param {*} markdown 生成的 html 源码
- */
-export const getTitles = (code, titleHs = titleHtmls) => {
-  const titles = []
-  const dom = new DOMParser().parseFromString(code, 'text/html')
-  let node = dom.body.firstElementChild
-  while (node) {
-    const titleIndex = titleHs.indexOf(node.tagName.toLowerCase())
-    if (titleIndex !== -1) {
-      if (titles.length === 0) {
-        titles.push(getTitle(node.tagName, node.id, node.innerHTML))
-      } else {
-        let curTitles = titles
-        let title = curTitles[curTitles.length - 1]
-
-        while (title) {
-          // 标签同级 或者上级子标签为空
-          if (title.tag === node.tagName) {
-            curTitles.push(getTitle(node.tagName, node.id, node.innerHTML))
-            title = null
-          } else {
-            curTitles = curTitles[curTitles.length - 1].children
-            if (curTitles.length === 0) {
-              curTitles.push(getTitle(node.tagName, node.id, node.innerHTML))
-              title = null
-            } else {
-              title = curTitles[curTitles.length - 1]
-            }
-          }
-        }
-      }
-    }
-    node = node.nextElementSibling
-  }
-
-  return titles
-}
-
 /**
  * 获取 html 中的innerHtml
  * @param {*} code
@@ -125,16 +75,18 @@ export const getMarkdownHtml = code => handleMarkdownStyle(Marked(code))
 
 export default ({ link = null, markdown = '' }) => {
   const [markdownHtml, setMarkdownHtml] = useState('')
+
   useEffect(() => {
-    setMarkdownHtml(markdown)
+    markdown !== '' && setMarkdownHtml(handleMarkdownStyle(markdown))
   }, [markdown])
+
   useEffect(() => {
     const getData = async link => {
       const res = await (await fetch(link)).text()
-      const code = handleMarkdownStyle(Marked(res))
-      setMarkdownHtml(code)
+      setMarkdownHtml(handleMarkdownStyle(Marked(res)))
     }
     link && getData(link)
   }, [link])
+
   return <div className="markdown" dangerouslySetInnerHTML={{ __html: markdownHtml }}></div>
 }
