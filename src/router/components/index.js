@@ -1,8 +1,8 @@
-import LoadingPage, { Animation as Loading } from '../../pages/components/loading'
-import BtnHoverShininggPage, { Animation as BtnHoverShining } from '../../pages/components/btn-hover-shining'
-import TodoListgPage, { Animation as TodoList } from '../../pages/components/todo-list'
-import ProfileCardgPage, { Animation as ProfileCard } from '../../pages/components/profile-card'
-import DynamicAddListgPage, { Animation as DynamicAddList } from '../../pages/components/dynamic-add-list'
+import LoadingPage, { Animation as Loading } from '../../pages/css-components/loading'
+import BtnHoverShininggPage, { Animation as BtnHoverShining } from '../../pages/css-components/btn-hover-shining'
+import TodoListgPage, { Animation as TodoList } from '../../pages/css-components/todo-list'
+import ProfileCardgPage, { Animation as ProfileCard } from '../../pages/css-components/profile-card'
+import DynamicAddListgPage, { Animation as DynamicAddList } from '../../pages/css-components/dynamic-add-list'
 
 export default [
   {

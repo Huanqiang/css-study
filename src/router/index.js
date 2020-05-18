@@ -2,7 +2,7 @@ import Home from '../pages/home'
 import Blog from '../pages/blog'
 import About from '../pages/about'
 // import Components from '../pages/component-home'
-import Components from '../pages/components/index'
+import Components from '../pages/css-components/index'
 import { BookOutlined, PartitionOutlined, ExclamationCircleOutlined, HomeOutlined } from '@ant-design/icons'
 
 export default [

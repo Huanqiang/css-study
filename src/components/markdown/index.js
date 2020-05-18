@@ -26,7 +26,8 @@ const setImageClassName = dom => {
   while (node) {
     if (
       node.tagName === 'P' &&
-      node.childNodes[0].tagName === 'IMG' &&
+      node.children.length !== 0 &&
+      node.children[0].tagName === 'IMG' &&
       !utils.hasClass(node, 'markdown-img-container')
     ) {
       node.classList.add('markdown-img-container')
@@ -50,9 +51,7 @@ const addLineNumber = dom => {
 export const handleMarkdownStyle = code => {
   let dom = new DOMParser().parseFromString(code, 'text/html')
   dom = addLineNumber(dom)
-  // console.log('addLineNumber', dom)
   dom = setImageClassName(dom)
-  // console.log('setImageClassName', dom)
   return dom.body.innerHTML
 }
 

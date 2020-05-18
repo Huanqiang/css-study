@@ -4,6 +4,7 @@ import Markdown, { handleMarkdownStyle, getTitles as getMarkdownTitles } from '.
 import BlogMenu from './blogMenu'
 import Comment from './comment'
 
+import useScrollProcess from '../../../hooks/useScrollProcess'
 import blogs from '../../../markdown'
 import './index.scss'
 
@@ -11,6 +12,7 @@ export default () => {
   let [markdown, setMarkdown] = useState('')
   let [titles, setTitles] = useState([])
   let { title } = useParams()
+  let scrollProcess = useScrollProcess()
 
   useEffect(() => {
     // const getData = async () => {
