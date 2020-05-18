@@ -14,12 +14,8 @@ const defaultSocials = [
   { type: 'weibo', img: Weibo, url: 'https://weibo.com/u/6076963078/home' }
 ]
 
-export const Animation = ({ img = avator, name = 'huanqiang', intro, socials = defaultSocials }) => (
-  <ProfileCard img={avator} name="huanqiang" socials={socials}></ProfileCard>
+export const Animation = () => (
+  <ProfileCard img={avator} name="huanqiang" intro="good good study" socials={defaultSocials}></ProfileCard>
 )
 
-export default () => (
-  <PageLayout
-    cssAnimation={() => <Animation img={avator} name="huanqiang" socials={defaultSocials}></Animation>}
-    explain={() => <></>}></PageLayout>
-)
+export default () => <PageLayout cssAnimation={() => <Animation></Animation>} explain={() => <></>}></PageLayout>

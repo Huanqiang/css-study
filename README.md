@@ -28,7 +28,7 @@
 
    > 这里的 token 不能上传至 github 上，上传了会被自动删除
 
-3. 评论配置，请参照 [为博客添加 Gitalk 评论插件](https://zhuanlan.zhihu.com/p/81270400) 申请 GitHub OAuth application，然后在 `src/config/comment.json` 文件配置一下信息；
+3. 评论配置，请参照 [为博客添加 Gitalk 评论插件](https://zhuanlan.zhihu.com/p/81270400) 申请 `GitHub OAuth application`，然后在 `src/config/comment.json` 文件配置一下信息；
 
    > ```json
    > {
@@ -48,4 +48,6 @@
 
 ## 博客发布
 
-执行命令 `yarn deploy`，即可将工程进行编译，并上传至 github 的 github.io 仓库中即可；
+执行命令 `yarn deploy`，即可将工程进行编译，并上传至 `github` 的 `github.io` 仓库中即可；
+
+> 执行命令前，请修改 `package.json` 中的 `scripts.publish` 的 `git` 仓库地址为你自己的 `blog` 仓库

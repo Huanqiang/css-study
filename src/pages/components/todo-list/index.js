@@ -3,7 +3,12 @@ import PageLayout from '../../../components/page-layout'
 import Panel from '../../../components/panel'
 import TodoList from '../../../components/todo-list'
 
-export const Animation = () => <TodoList></TodoList>
+export const Animation = () => (
+  <TodoList
+    title="Todo List"
+    list={[{ label: 'todo item1' }, { label: 'todo item2' }, { label: 'todo item3' }]}
+    onToggle={item => console.log(item)}></TodoList>
+)
 
 export default () => (
   <PageLayout

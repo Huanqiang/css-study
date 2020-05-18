@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input } from 'antd'
-import DynamicList from './index'
+import DynamicList from '../../../components/dynamic-add-list'
 
 const Item = ({ name, pwd, onChange }) => {
   return (

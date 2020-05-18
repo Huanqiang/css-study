@@ -1,5 +1,7 @@
 .markdown {
+  font-size: 15px;
   color: #000000;
+  font-family: Menlo, monospace;
   pre {
     position: relative;
     margin-bottom: 24px;
@@ -10,7 +12,7 @@
       padding: 12px 20px;
       overflow-y: auto;
       font-weight: 300;
-      font-family: Menlo, monospace;
+      // font-family: Menlo, monospace;
     }
   }
   code:not(.hljs) {
@@ -22,7 +24,7 @@
     padding: 0.065em 0.4em;
     overflow-y: auto;
     font-weight: 300;
-    font-family: Menlo, monospace;
+    // font-family: Menlo, monospace;
     background-color: #fff5f5;
   }
   p {

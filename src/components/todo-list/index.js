@@ -9,11 +9,11 @@ const Item = ({ label, onToggle }) => (
   </label>
 )
 
-export default () => (
+export default ({ title, list = [], onToggle }) => (
   <fieldset className="todo">
-    <legend className="todo-title">这是一个Todo-List</legend>
-    <Item label="这是一个Todo Item" onToggle={label => console.log(label)}></Item>
-    <Item label="这又是一个Todo Item" onToggle={label => console.log(label)}></Item>
-    <Item label="这还是一个Todo Item" onToggle={label => console.log(label)}></Item>
+    {title && <legend className="todo-title">{title}</legend>}
+    {list.map(item => (
+      <Item label={item.label} key={item.label} onToggle={label => onToggle(label)}></Item>
+    ))}
   </fieldset>
 )

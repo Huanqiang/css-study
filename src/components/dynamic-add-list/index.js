@@ -72,7 +72,9 @@ export default class DynamicList extends React.Component {
             <Component {...item} onChange={(k, v) => this.change(item.key, k, v)}></Component>
             <div className="dynamic-list-item-operation">
               <Button type="primary" shape="circle" icon={<PlusOutlined />} onClick={() => this.add(item.key)} />
-              <Button shape="circle" icon={<MinusOutlined />} onClick={() => this.remove(item.key)} />
+              {list.length !== 1 && (
+                <Button shape="circle" icon={<MinusOutlined />} onClick={() => this.remove(item.key)} />
+              )}
             </div>
           </div>
         ))}

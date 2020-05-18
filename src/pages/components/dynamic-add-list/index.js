@@ -1,5 +1,5 @@
 import React from 'react'
-import DynamicList from '../../../components/dynamic-add-list/demo'
+import DynamicList from './demo'
 import PageLayout from '../../../components/page-layout'
 
 export const Animation = () => <DynamicList></DynamicList>

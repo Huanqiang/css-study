@@ -6,9 +6,9 @@ export default ({ url, title, Component }) => (
     <div className="component-biref-item-animation">
       <Component></Component>
     </div>
-
+    {/* 
     <Link to={`${url}`}>
       <div className="component-biref-item-details">查看详情</div>
-    </Link>
+    </Link> */}
   </div>
 )
