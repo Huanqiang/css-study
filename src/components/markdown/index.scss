@@ -15,6 +15,7 @@
       // font-family: Menlo, monospace;
     }
   }
+
   code:not(.hljs) {
     // display: block;
     // padding: 12px 20px;
@@ -27,9 +28,10 @@
     // font-family: Menlo, monospace;
     background-color: #fff5f5;
   }
-  p {
+  p.markdown-img-container {
+    text-align: center;
     img {
-      width: 100%;
+      max-width: 100%;
     }
   }
   blockquote {
