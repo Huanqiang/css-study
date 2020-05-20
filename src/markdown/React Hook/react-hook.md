@@ -1,14 +1,14 @@
 # React Hook
 
-Hook 是 React 16.8的新增特性，可以让开发者不使用 `class` 的情况下使用 `state` 及其他特性。
+Hook 是 React 16.8 的新增特性，可以让开发者不使用 `class` 的情况下使用 `state` 及其他特性。
 
 ## 函数式组件
 
-函数式组件就是一个纯函数，它属于无状态组件（`Stateless Components`），返回了`DOM`或是其他组件，在函数组件中，你无法使用State，也无法使用组件的生命周期方法，这就决定了函数组件都是展示性组件（`Presentational Components`），接收`Props`，渲染`DOM`，而不用关注其他逻辑。
+函数式组件就是一个纯函数，它属于无状态组件（`Stateless Components`），返回了`DOM`或是其他组件，在函数组件中，你无法使用 State，也无法使用组件的生命周期方法，这就决定了函数组件都是展示性组件（`Presentational Components`），接收`Props`，渲染`DOM`，而不用关注其他逻辑。
 
 我们知道只要父组件进行了重渲染，函数式组件也要进行重渲染，而当函数式组件进行重渲染的时候，其实相当于重新执行了一次该函数，使得这个函数中的每一个变量都与之前的不一样了（除了表现形式），我们举个例子：
 
-> 例子来源 [How Are Function Components Different from Classes?](https://overreacted.io/how-are-function-components-different-from-classes/) 
+> 例子来源 [How Are Function Components Different from Classes?](https://overreacted.io/how-are-function-components-different-from-classes/)
 
 ```react
 function ProfilePage(props) {
@@ -26,9 +26,9 @@ function ProfilePage(props) {
 }
 ```
 
-在这个例子中，我们假设当前时刻 `props.user` 的值为 `”AAA“`，然后按下 `Follow` 按钮，再去更新 `props.user` 的值为 `”BBB“`，这样就会引起 `ProfilePage` 组件进行重渲染，然后过了3秒，弹窗出现，我们会发现弹框显示的信息仍是 `”AAA“`。
+在这个例子中，我们假设当前时刻 `props.user` 的值为 `”AAA“`，然后按下 `Follow` 按钮，再去更新 `props.user` 的值为 `”BBB“`，这样就会引起 `ProfilePage` 组件进行重渲染，然后过了 3 秒，弹窗出现，我们会发现弹框显示的信息仍是 `”AAA“`。
 
-这是因为 **react 函数式组件始终会捕获、记录和使用当前渲染的 props、state**。即在  `props.user` 的值更新之后，`ProfilePage` 组件进行了重渲染，也生成了新的 `handleClick` 和 `showMessage` 这两个函数，但是因为闭包的性质，所以之前那个  `props.user` 的值为 `”AAA“` 的 `showMessage` 函数仍然存在，且直到重渲染前的`handleClick`中的`setTimeout`执行完毕才会被销毁。所以说不仅重渲染前后的 `handleClick` 和 `showMessage` 这两个函数发生了变化，而且函数中对应的所捕获的值也是不一样，分别是更新前后的值。
+这是因为 **react 函数式组件始终会捕获、记录和使用当前渲染的 props、state**。即在 `props.user` 的值更新之后，`ProfilePage` 组件进行了重渲染，也生成了新的 `handleClick` 和 `showMessage` 这两个函数，但是因为闭包的性质，所以之前那个 `props.user` 的值为 `”AAA“` 的 `showMessage` 函数仍然存在，且直到重渲染前的`handleClick`中的`setTimeout`执行完毕才会被销毁。所以说不仅重渲染前后的 `handleClick` 和 `showMessage` 这两个函数发生了变化，而且函数中对应的所捕获的值也是不一样，分别是更新前后的值。
 
 ## 出现的目的
 
@@ -129,8 +129,7 @@ export const MinWidthHook = ({ children }) => children(600)
 
 > 可以看到自定义 `Hook` `useWidth` 其实就是一个函数。
 
-### 2. 使React更靠近声明式和函数式
-
+### 2. 使 React 更靠近声明式和函数式
 
 ## `useState` 和 `useEffect`
 
@@ -270,13 +269,12 @@ function Example() {
 
 #### 什么时候执行 `useEffert` 中的内容
 
-在每次调用 `useEffert` 的时候，事实上组件只会记录当前的 `effert` 函数，然后**等到UI渲染完成**（在界面上可见）后，**再去调用清除函数**（清理上一次的 `effert`），然后**再执行本次的`effert`函数**。
+在每次调用 `useEffert` 的时候，事实上组件只会记录当前的 `effert` 函数，然后**等到 UI 渲染完成**（在界面上可见）后，**再去调用清除函数**（清理上一次的 `effert`），然后**再执行本次的`effert`函数**。
 
 #### 什么时候调用清除函数
 
 1. 组件被卸载的时候；
-2. 当effert函数需要被再次执行的时候；
-
+2. 当 effert 函数需要被再次执行的时候；
 
 #### 跳过 `useEffect` 的 `effert` 函数的执行
 
@@ -289,7 +287,7 @@ function Example(props) {
 		useEffect(() => {})
 	}
 	...
-} 
+}
 ```
 
 其实 `useEffect` 还有第二个参数，就是用于控制重渲染/更新的时候是否调用 `useEffect` 函数内的内容（**注意，`useEffect` 是必然被调用的，只是跳过了其内容部分的执行**）。第二个参数允许我们传入一个数组，每一个元素都能控制 `useEffect` 是否需要执行。
@@ -301,8 +299,9 @@ function Example(props) {
   		document.title = `You clicked ${count} times`;
 	}, [count]); // 仅在 count 更改时更新
 	...
-} 
+}
 ```
+
 在这段代码中，只有当 `count` 的值改变了的时候，才会执行 `useEffect` 内部的代码。这段代码如果用 `class` 组件来写的话，相当于：
 
 ```react
@@ -339,10 +338,11 @@ function Example(props) {
   		document.title = `You clicked ${count} times`;
 	}, []); // 仅在 count 更改时更新
 	...
-} 
+}
 ```
 
 它相当于：
+
 ```react
 class Example extends React.Component {
   constructor(props) {
@@ -390,7 +390,7 @@ let firstRender = true;
 
 function RenderFunctionComponent() {
   let initName;
-  
+
   if(firstRender){
     [initName] = useState("Rudi");
     firstRender = false;
@@ -414,10 +414,9 @@ function RenderFunctionComponent() {
 
 ![1aK7jIm6oOeHJqgWnNXt8Ig](https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/blog/1aK7jIm6oOeHJqgWnNXt8Ig.png)
 
-> 图来自 [React hooks: not magic, just arrays](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e) 
+> 图来自 [React hooks: not magic, just arrays](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 
-
-## 其他API
+## 其他 API
 
 ### useCallback
 
@@ -431,7 +430,7 @@ function Example() {
 	const getFetchUrl = (query) => {
 		fetch('http://xxx', query)
 	}
-	
+
 	useEffect(()=> {
 		getFetchUrl(query)
 	}, [getFetchUrl, query])
@@ -439,11 +438,11 @@ function Example() {
 }
 ```
 
-在这个例子中，我们将请求函数从 useEffect 中提取出来，我们希望的是，只有当query改变之后，useEffect 中的`getFetchUrl` 函数才会重新执行。而事实上，这个 `getFetchUrl`  函数在每次函数重渲染的时候都会执行，即这个useEffect里的内容都会被调用。你可能会疑问为什么会有这样的操作：*getFetchUrl函数不是每次都一样嘛，如果query没有变的话，那么 useEffect 的依赖不是没有发生改变，那么为什么 useEffect 里的内容每次重渲染都会被调用？* 
+在这个例子中，我们将请求函数从 useEffect 中提取出来，我们希望的是，只有当 query 改变之后，useEffect 中的`getFetchUrl` 函数才会重新执行。而事实上，这个 `getFetchUrl` 函数在每次函数重渲染的时候都会执行，即这个 useEffect 里的内容都会被调用。你可能会疑问为什么会有这样的操作：_getFetchUrl 函数不是每次都一样嘛，如果 query 没有变的话，那么 useEffect 的依赖不是没有发生改变，那么为什么 useEffect 里的内容每次重渲染都会被调用？_
 
-之所以会有这样的问题，就是因为在事实上每次组件重渲染的时候，getFetchUrl都发生了变化。在每次组件重渲染的时候，函数都重新执行了一遍，这也就意味着 getFetchUrl 这个函数被重新声明赋值了，其内存地址已经发生了变化，只不过在重渲染前后，我们给这两个不同的内存地址设置了相同的内容而已。
+之所以会有这样的问题，就是因为在事实上每次组件重渲染的时候，getFetchUrl 都发生了变化。在每次组件重渲染的时候，函数都重新执行了一遍，这也就意味着 getFetchUrl 这个函数被重新声明赋值了，其内存地址已经发生了变化，只不过在重渲染前后，我们给这两个不同的内存地址设置了相同的内容而已。
 
-所以想要达到正确的目的，我们可以把fetch请求放到 useEffect中就可以了，这样就保证了每次只依赖于query这一个变量。
+所以想要达到正确的目的，我们可以把 fetch 请求放到 useEffect 中就可以了，这样就保证了每次只依赖于 query 这一个变量。
 
 ```react
 import React, {useState, uesCallback} from 'react'
@@ -457,7 +456,7 @@ function Example() {
 }
 ```
 
-但是，如果说一定要将请求提取出来，那么我们可以借助 useCallback 来达到目的。useCallback 为我们的函数加了一层 query 的检查，只要 query 不变，那么getFetchUrl 这个函数就不变，所以 useEffect 里的内容也不会被执行（注意，useEffect 本身还是调用了的）。
+但是，如果说一定要将请求提取出来，那么我们可以借助 useCallback 来达到目的。useCallback 为我们的函数加了一层 query 的检查，只要 query 不变，那么 getFetchUrl 这个函数就不变，所以 useEffect 里的内容也不会被执行（注意，useEffect 本身还是调用了的）。
 
 ```react
 import React, {useState, uesCallback} from 'react'
@@ -467,7 +466,7 @@ function Example() {
 	const getFetchUrl = useCallback(() => {
 		fetch('http://xxx', query)
 	}, [query])
-	
+
 	useEffect(()=> {
 		getFetchUrl()
 	}, [getFetchUrl])
@@ -477,18 +476,18 @@ function Example() {
 
 ### useRef
 
-在典型的 `React` 应用中，我们不能直接操作`DOM`元素，同样的，父组件也不能直接操作子组件，只能通过`props`来重新渲染它。如果遇到非要操作DOM元素或是子组件的方法的时候，你就需要 `ref` 了，它指向了我们所需要操作的DOM元素或是组件的实例。
+在典型的 `React` 应用中，我们不能直接操作`DOM`元素，同样的，父组件也不能直接操作子组件，只能通过`props`来重新渲染它。如果遇到非要操作 DOM 元素或是子组件的方法的时候，你就需要 `ref` 了，它指向了我们所需要操作的 DOM 元素或是组件的实例。
 
 > **不能在函数组件上使用 ref 属性，因为函数组件没有实例**
 
-而在 Hook 中，useRef 除了能指向 DOM元素或组件 的实例之外，还能指向任意一个数据。如下实例：
+而在 Hook 中，useRef 除了能指向 DOM 元素或组件 的实例之外，还能指向任意一个数据。如下实例：
 
 ```react
 import React, {uesRef} from 'react'
 
 function Example() {
   const ref = useRef(null)
-	
+
   const changeValue = (e) => {
 		ref.current = e.target.value
   }
@@ -498,22 +497,14 @@ function Example() {
 
 通常你并不需要这样的操作，但是**如果你需要获取不属于当前组件的 `props` 或 `state` 的时候**，那么你就需要 `useRef` 了。
 
-实际上，`const ref = useRef(null) ` 所返回的只是一个“普通”的 JS 对象，只不过它的值不会随着你的函数式组件重新渲染而变化，即每次渲染的时候 `useRef` 都会返回同一个值。同样的，`ref.current` 的改变也不会引起函数的重新渲染，就好像这是一个存在于函数之外的全局变量一样。
+实际上，`const ref = useRef(null)` 所返回的只是一个“普通”的 JS 对象，只不过它的值不会随着你的函数式组件重新渲染而变化，即每次渲染的时候 `useRef` 都会返回同一个值。同样的，`ref.current` 的改变也不会引起函数的重新渲染，就好像这是一个存在于函数之外的全局变量一样。
 
 > 事实上，`ref.current` 确实存在于该函数之外。如同 `const { state, setState } = useState(initState);` 一样。
 
 ## 必看资料
 
-* [一篇看懂 React Hooks](https://zhuanlan.zhihu.com/p/50597236) 
-* [useEffect 完整指南](https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/) 
-* [使用 React Hooks 声明 setInterval](https://overreacted.io/zh-hans/making-setinterval-declarative-with-react-hooks/) ：精妙绝伦。
-* [How Are Function Components Different from Classes?](https://overreacted.io/how-are-function-components-different-from-classes/)，译文：[React函数组件和类组件的差异](https://zhuanlan.zhihu.com/p/62767474)
-* [useMemo与useCallback使用指南](https://zhuanlan.zhihu.com/p/66166173)
-
-
-
-
-
-
-
-
+- [一篇看懂 React Hooks](https://zhuanlan.zhihu.com/p/50597236)
+- [useEffect 完整指南](https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/)
+- [使用 React Hooks 声明 setInterval](https://overreacted.io/zh-hans/making-setinterval-declarative-with-react-hooks/) ：精妙绝伦。
+- [How Are Function Components Different from Classes?](https://overreacted.io/how-are-function-components-different-from-classes/)，译文：[React 函数组件和类组件的差异](https://zhuanlan.zhihu.com/p/62767474)
+- [useMemo 与 useCallback 使用指南](https://zhuanlan.zhihu.com/p/66166173)

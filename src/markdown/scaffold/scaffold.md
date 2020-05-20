@@ -1,6 +1,6 @@
 # 简易脚手架
 
-我们在使用 `vue-cli`、`create-react-app` 的时候，只要执行一个简单的命令 `vue init app` 或是  `create-react-app app` 就是快速创建出一个可直接使用的项目模板，极大地提高了开发效率。
+我们在使用 `vue-cli`、`create-react-app` 的时候，只要执行一个简单的命令 `vue init app` 或是 `create-react-app app` 就是快速创建出一个可直接使用的项目模板，极大地提高了开发效率。
 
 本文提供了一个开发简易脚手架的过程。
 
@@ -8,14 +8,14 @@
 
 ### 第三方工具
 
-* [comander](https://github.com/tj/commander.js)： `tj` 大神出品的`nodejs`命令行解决方案，用于捕获控制台输入的命令；
-* [chalk](https://github.com/chalk/chalk)：命令行文字配色工具；
-* [cross-spawn](https://github.com/moxystudio/node-cross-spawn)：跨平台的 `node` spawn/spawnSync 解决方案；
-* [fs-extra](https://github.com/jprichardson/node-fs-extra)：`nodejs` `fs` 的加强版，新增了API的同时，也包含了原`fs`的`API`；
-* [handlebars](https://github.com/wycats/handlebars.js/)：一个字符串模板工具，可以将信息填充到模板的指定位置；
-* [inquirer](https://github.com/SBoudrias/Inquirer.js/)：交互式命令行用户界面集合，用于使用者补充信息或是选择操作；
-* [log-symbols](https://github.com/sindresorhus/log-symbols)：不同日志级别的彩色符号标志，包含了 `info`、`success`、`warning` 和 `error` 四级；
-* [ora](https://github.com/sindresorhus/ora)：动态加载操作符号；
+- [comander](https://github.com/tj/commander.js)： `tj` 大神出品的`nodejs`命令行解决方案，用于捕获控制台输入的命令；
+- [chalk](https://github.com/chalk/chalk)：命令行文字配色工具；
+- [cross-spawn](https://github.com/moxystudio/node-cross-spawn)：跨平台的 `node` spawn/spawnSync 解决方案；
+- [fs-extra](https://github.com/jprichardson/node-fs-extra)：`nodejs` `fs` 的加强版，新增了 API 的同时，也包含了原`fs`的`API`；
+- [handlebars](https://github.com/wycats/handlebars.js/)：一个字符串模板工具，可以将信息填充到模板的指定位置；
+- [inquirer](https://github.com/SBoudrias/Inquirer.js/)：交互式命令行用户界面集合，用于使用者补充信息或是选择操作；
+- [log-symbols](https://github.com/sindresorhus/log-symbols)：不同日志级别的彩色符号标志，包含了 `info`、`success`、`warning` 和 `error` 四级；
+- [ora](https://github.com/sindresorhus/ora)：动态加载操作符号；
 
 ### 初始化项目
 
@@ -81,7 +81,7 @@ console.log('Hello Bin')
 
 ### 1. 捕获命令信息
 
-在上文，我们设置了bin信息，但是只有一个命令名称信息，但是在其他脚手架中，我们可以输入多个字段，如 `create-react-app app` 中 `create-reate-app` 表示命令，`app`表示创建的项目的名称。而这种捕获命令行的操作我们可以借助 [comander](https://github.com/tj/commander.js) 来完成。
+在上文，我们设置了 bin 信息，但是只有一个命令名称信息，但是在其他脚手架中，我们可以输入多个字段，如 `create-react-app app` 中 `create-reate-app` 表示命令，`app`表示创建的项目的名称。而这种捕获命令行的操作我们可以借助 [comander](https://github.com/tj/commander.js) 来完成。
 
 > 实际上，`vue` 和 `react` 的脚手架也是借助 [comander](https://github.com/tj/commander.js) 完成的。
 
@@ -172,11 +172,11 @@ if (fs.existsSync(targetProjectPath)) {
 
 ![app-exist](https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/blog/app-exist.png)
 
-### 4. 美化命令行 console 
+### 4. 美化命令行 console
 
 现在的命令行都是单调的白色字，我们使用 [chalk](https://github.com/chalk/chalk) 和 [log-symbols](https://github.com/sindresorhus/log-symbols) 来实现命令行的美化。主要代码如下：
 
-> 主要改了 `console` 部分的代码，使用  [log-symbols](https://github.com/sindresorhus/log-symbols) 添加输出标识， [chalk](https://github.com/chalk/chalk) 改变文字颜色。
+> 主要改了 `console` 部分的代码，使用 [log-symbols](https://github.com/sindresorhus/log-symbols) 添加输出标识， [chalk](https://github.com/chalk/chalk) 改变文字颜色。
 
 ```javascript
 action(async name => {
@@ -228,7 +228,7 @@ action(async name => {
 
 ### 5. 修改 package.json
 
-有些时候，我们需要根据用户输入来修改填充 `package.json`，就像 `npm init` 的时候输入的信息。在这里我们使用 [inquirer](https://github.com/SBoudrias/Inquirer.js/) 获取用户输入，使用 [handlebars](https://github.com/wycats/handlebars.js/) 来将用户输入填充到  `package.json` 中去。
+有些时候，我们需要根据用户输入来修改填充 `package.json`，就像 `npm init` 的时候输入的信息。在这里我们使用 [inquirer](https://github.com/SBoudrias/Inquirer.js/) 获取用户输入，使用 [handlebars](https://github.com/wycats/handlebars.js/) 来将用户输入填充到 `package.json` 中去。
 
 在拷贝文件夹后加入以下代码：
 
@@ -257,8 +257,6 @@ if (fs.pathExistsSync(targetPackageFile)) {
   console.log('package.json 文件不存在：' + targetPackageFile)
 }
 ```
-
-
 
 至此，我们的简易脚手架已经基本搭建完成了，能够在指定文件夹生成项目模板文件。但是，我们如果使用 `create-react-app` 的话，就会发现只要你一执行命令就会它帮你自动安装依赖，而且也会自动初始化 `Git`。
 
@@ -305,13 +303,13 @@ function tryYarn(root) {
 >
 > 上述语句相当于命令行中执行 `yarn`，但是我们必须加上 `'--cwd'` 来将其执行路径修改为命令所在的目录，因为 `spawn` 默认执行目录是脚手架目录。同时又因为 `spawn` 是开了一个子线程，所以如果你不使用 `{ stdio: 'inherit' }`，那么你将看不到 `yarn` 安装的过程。
 >
-> > 参考博客：[Node.js child_process模块解读](https://juejin.im/post/5b10a814f265da6e2a08a6f7)
+> > 参考博客：[Node.js child_process 模块解读](https://juejin.im/post/5b10a814f265da6e2a08a6f7)
 > >
 > > `stdio` 选项用于配置父进程和子进程之间建立的管道，由于 `stdio` 管道有三个(`stdin`, `stdout`, `stderr`）因此 `stdio` 的三个可能的值其实是数组的一种简写
 > >
 > > - `pipe` 相当于 `['pipe', 'pipe', 'pipe']`（默认值）
 > > - `ignore` 相当于 `['ignore', 'ignore', 'ignore']`
-> > - `inherit` 相当于 `[process.stdin, process.stdout, process.stderr]` 
+> > - `inherit` 相当于 `[process.stdin, process.stdout, process.stderr]`
 
 然后在修改 `package.json` 代码后面添加以下代码即可。
 
@@ -322,7 +320,7 @@ await tryYarn(targetProjectPath)
 
 ### 7. 初始化 Git
 
-然后我们进行git的初始化，即执行 `git init`。
+然后我们进行 git 的初始化，即执行 `git init`。
 
 ```javascript
 function tryInitGit(root) {
@@ -365,5 +363,3 @@ tryInitGit(targetProjectPath)
 本文总结了个人在搭建简易脚手架的过程，功能过于简单，算是一个小小的开端吧。
 
 最后不由感叹 `nodejs` 还是非常之强悍的！
-
-

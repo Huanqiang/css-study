@@ -65,45 +65,75 @@ const getLocalImages = content => {
     .filter(img => !httpRex.test(img)) // 过滤非本地图片
 }
 
+function oneByOne(list = [], task = () => {}) {
+  return list.reduce((prev, item) => {
+    return prev.then(() => task(item))
+  }, Promise.resolve())
+}
+
 glob(localAddress + '*/*.md', {}, function (err, files) {
   if (err) {
     console.log(err)
     return
   }
 
-  Promise.all(
-    files.map(file => {
-      return new Promise(async (resolve, reject) => {
-        console.log(`正在处理文件 ${file}`)
+  // 将图片改为一张张串行上传的方式
+  oneByOne(files, async file => {
+    // console.log(`正在处理文件 ${file}`)
+    let markdown = fs.readFileSync(file, 'utf8')
+    const localImagePaths = getLocalImages(markdown)
+    await oneByOne(localImagePaths, async imgPath => {
+      console.log(`正在上传图片 ${imgPath}`)
 
-        let markdown = fs.readFileSync(file, 'utf8')
-        const imagePaths = getLocalImages(markdown)
+      const imgName = path.basename(imgPath)
+      const result = await uploadImage(imgName, path.dirname(file))
+      if (result) {
+        markdown = markdown.replace(imgPath, remoteAddress + imgName)
+      }
+    }).then(data => {
+      if (localImagePaths.length !== 0) {
+        fs.writeFileSync(file, markdown, 'utf-8')
+      }
 
-        Promise.all(
-          imagePaths.map(imgPath => {
-            return new Promise(async (resolve, reject) => {
-              const imgName = path.basename(imgPath)
-              // fs.copySync(
-              //   path.join(path.dirname(file), imgName),
-              //   path.join('build/blog', path.dirname(file).replace(localAddress, ''), imgName)
-              // )
-              const result = await uploadImage(imgName, path.dirname(file))
-              if (result) {
-                markdown = markdown.replace(imgPath, remoteAddress + imgName)
-              }
-              resolve()
-            })
-          })
-        ).then(data => {
-          if (imagePaths.length !== 0) {
-            fs.writeFileSync(file, markdown, 'utf-8')
-          }
-
-          const html = Marked(markdown)
-          const htmlName = file.replace(path.extname(file), '.json')
-          fs.writeFileSync(htmlName, JSON.stringify({ content: html }), 'utf-8')
-        })
-      })
+      const html = Marked(markdown)
+      const htmlName = file.replace(path.extname(file), '.json')
+      fs.writeFileSync(htmlName, JSON.stringify({ content: html }), 'utf-8')
     })
-  )
+  })
+
+  // Promise.all(
+  //   files.map(file => {
+  //     return new Promise(async (resolve, reject) => {
+  //       console.log(`正在处理文件 ${file}`)
+
+  //       let markdown = fs.readFileSync(file, 'utf8')
+  //       const localImagePaths = getLocalImages(markdown)
+
+  //       Promise.all(
+  //         localImagePaths.map(imgPath => {
+  //           return new Promise(async (resolve, reject) => {
+  //             const imgName = path.basename(imgPath)
+  //             const result = await uploadImage(imgName, path.dirname(file))
+  //             if (result) {
+  //               markdown = markdown.replace(imgPath, remoteAddress + imgName)
+  //             }
+  //             resolve()
+  //           })
+  //         })
+  //       ).then(data => {
+  //         if (localImagePaths.length !== 0) {
+  //           fs.writeFileSync(file, markdown, 'utf-8')
+  //         }
+
+  //         const html = Marked(markdown)
+  //         const htmlName = file.replace(path.extname(file), '.json')
+  //         fs.writeFileSync(htmlName, JSON.stringify({ content: html }), 'utf-8')
+  //       })
+  //     })
+  //   })
+  // )
 })
+
+function curry(fn, ...args) {
+  return args.length >= fn.length ? fn(...args) : (...params) => curry(fn, ...args, ...params)
+}

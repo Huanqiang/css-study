@@ -33,7 +33,7 @@
 
 ## 解决方案
 
-产生这个问题的原因就是：当 `filter` 不为 `none` 的时候，如果该元素或者其子元素具有 `absolute` 或 `fixed` 属性，那么它会为其创建一个新的包含块/容器，会造成该  `absolute` 或 `fixed` 元素的定位发生变化（就是改变了 `absolute` 或 `fixed` 元素的定位<父>元素，变成新创建的元素）。
+产生这个问题的原因就是：当 `filter` 不为 `none` 的时候，如果该元素或者其子元素具有 `absolute` 或 `fixed` 属性，那么它会为其创建一个新的包含块/容器，会造成该 `absolute` 或 `fixed` 元素的定位发生变化（就是改变了 `absolute` 或 `fixed` 元素的定位<父>元素，变成新创建的元素）。
 
 > 以上面的例子说明，当在 `body` 标签中使用了 `filter` 属性后，`filter` 就会生成一个新的包含块，其位置大小和`body` 一样，然后 `fixed` 元素就会根据这个包含块进行定位，所以我们会看到 `fixed` 元素失去原有的特性；
 
@@ -45,10 +45,9 @@
 
 ```css
 html {
-	filter: grayscale(1);
+  filter: grayscale(1);
 }
 ```
-
 
 ## 扩展
 
@@ -64,5 +63,4 @@ html {
 
 两者之间的区别可以参考这边博客：http://phrogz.net/css/htmlvsbody.html
 
-> ps：HTML 元素是 max(屏幕高度<viewport高度>, 内部元素高度<body元素高度>)
-
+> ps：HTML 元素是 max(屏幕高度<viewport 高度>, 内部元素高度<body 元素高度>)

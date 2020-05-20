@@ -1,6 +1,6 @@
 # Vue SSR 学习指南（小白向）
 
-> 本文首先介绍了SSR的一些概念，然后提供了一个简单地基于 webpack 的 SSR Demo，并且详细地说明了可能遇到的 `Uncaught SyntaxError: Unexpected token <` 错误及其解决方案。
+> 本文首先介绍了 SSR 的一些概念，然后提供了一个简单地基于 webpack 的 SSR Demo，并且详细地说明了可能遇到的 `Uncaught SyntaxError: Unexpected token <` 错误及其解决方案。
 
 ## 概念
 
@@ -8,13 +8,13 @@
 
 ### 1. 客户端渲染
 
-客户端渲染应该是我们最熟悉的，像基于 Vue/React 等UI库开发的 SPA 应用就是客户端渲染的典型代表。在客户端渲染时，首先浏览器会向服务器发送网页请求，服务器返回 `index.html`，而这个 html 通常只有一个 `<div id="app"></div>` 标签，所以浏览器必然会历经一个白屏时间，然后浏览器加载并执行 js （Vue或是React）生成 UI 界面，并把执行结果插入到指定标签上（即在网页上渲染出 Vue/React 生成的 UI）。
+客户端渲染应该是我们最熟悉的，像基于 Vue/React 等 UI 库开发的 SPA 应用就是客户端渲染的典型代表。在客户端渲染时，首先浏览器会向服务器发送网页请求，服务器返回 `index.html`，而这个 html 通常只有一个 `<div id="app"></div>` 标签，所以浏览器必然会历经一个白屏时间，然后浏览器加载并执行 js （Vue 或是 React）生成 UI 界面，并把执行结果插入到指定标签上（即在网页上渲染出 Vue/React 生成的 UI）。
 
 ### 2. 服务端渲染
 
-服务端渲染就是指当客户端向服务器发送页面请求的时候，服务端会把完整页面的html代码发送回来，而不是发送一个仅包含空标签的html，客户端只需要根据这份 html 即可把完整的页面渲染出来，无需 js 额外的操作。
+服务端渲染就是指当客户端向服务器发送页面请求的时候，服务端会把完整页面的 html 代码发送回来，而不是发送一个仅包含空标签的 html，客户端只需要根据这份 html 即可把完整的页面渲染出来，无需 js 额外的操作。
 
-> 服务端并不是一个新的东西，其实在前端工程化出来之前，早期的J2EE和SSM框架还是前后端不分离的，这类项目基于JSP等模板提供前端页面，浏览器向服务器发送请求的时候，服务器就是返回完整的html页面，然后浏览器加载并渲染即可，这就是服务端渲染。
+> 服务端并不是一个新的东西，其实在前端工程化出来之前，早期的 J2EE 和 SSM 框架还是前后端不分离的，这类项目基于 JSP 等模板提供前端页面，浏览器向服务器发送请求的时候，服务器就是返回完整的 html 页面，然后浏览器加载并渲染即可，这就是服务端渲染。
 
 那随着前端工程化的发展，人们发现客户端渲染带来了很多优点：
 
@@ -28,14 +28,14 @@
 
 ### 3. 同构（SSR）
 
-但是，前面我们提到当浏览器进行客户端渲染时，一开始浏览器仅会返回一个包含空标签的简单模板，需要加载JS，并等待JS执行完以提供完整的页面UI。这就会带来一些问题：
+但是，前面我们提到当浏览器进行客户端渲染时，一开始浏览器仅会返回一个包含空标签的简单模板，需要加载 JS，并等待 JS 执行完以提供完整的页面 UI。这就会带来一些问题：
 
-1. 首页白屏问题（即首屏性能）：如果  JS 很大，那么用户必然会历经很长的白屏时间才能看到页面；
+1. 首页白屏问题（即首屏性能）：如果 JS 很大，那么用户必然会历经很长的白屏时间才能看到页面；
 2. SEO 问题；
 
-所以为了解决这些问题，人们提出了同构的概念，同构实际上是客户端渲染和服务器端渲染的一个整合，使用服务端渲染来解决首页白屏问题和SEO问题的同时，又保持了客户端渲染的优势。整体流程如下：
+所以为了解决这些问题，人们提出了同构的概念，同构实际上是客户端渲染和服务器端渲染的一个整合，使用服务端渲染来解决首页白屏问题和 SEO 问题的同时，又保持了客户端渲染的优势。整体流程如下：
 
-首先，服务端会执行一次我们的代码，生成完整的HTML页面，返回给浏览器，浏览器就可以通过它快速地渲染出来完整界面，然后等待JS加载完成后，Vue/React 再执行一次生成UI界面，并接管之后的页面交互。
+首先，服务端会执行一次我们的代码，生成完整的 HTML 页面，返回给浏览器，浏览器就可以通过它快速地渲染出来完整界面，然后等待 JS 加载完成后，Vue/React 再执行一次生成 UI 界面，并接管之后的页面交互。
 
 ![SSR](https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/blog/SSR.jpg)
 
@@ -45,14 +45,14 @@
 
 参考：这部分官网写的就够看了：[《Vue-SSR 基本用法》](https://ssr.vuejs.org/zh/guide/#安装)
 
-## 同构Demo
+## 同构 Demo
 
 ### 项目源码结构
 
 我们的项目源码基本上如上所示
 
 ```
-├── config							
+├── config
 │   ├── webpack.base.config.js		# 基础的通用配置
 │   ├── webpack.client.config.js	# 客户端渲染配置
 │   └── webpack.server.config.js	# 服务端渲染配置
@@ -84,7 +84,7 @@
 </html>
 ```
 
-这里需要注意的是， body中无需 `<div id="app"></div>` 这样的空标签锚点，它被移到了 `App.vue`，文件中了，取而代之的是  `<!--vue-ssr-outlet-->` 这个注释，它相当于服务端渲染的锚点，如果没有这个注释，程序就会报错。
+这里需要注意的是， body 中无需 `<div id="app"></div>` 这样的空标签锚点，它被移到了 `App.vue`，文件中了，取而代之的是 `<!--vue-ssr-outlet-->` 这个注释，它相当于服务端渲染的锚点，如果没有这个注释，程序就会报错。
 
 #### `App.vue`
 
@@ -95,9 +95,7 @@
   </div>
 </template>
 <script>
-export default {
-
-}
+export default {}
 </script>
 ```
 
@@ -118,7 +116,7 @@ export default function createApp() {
 }
 ```
 
-这里之所以返回一个工厂函数而不是一个Vue实例是因为：
+这里之所以返回一个工厂函数而不是一个 Vue 实例是因为：
 
 > 官方解释：
 >
@@ -143,8 +141,8 @@ app.$mount('#app')
 import createApp from './app'
 
 export default context => {
-	const { app } = createApp()
-	return app
+  const { app } = createApp()
+  return app
 }
 ```
 
@@ -203,11 +201,11 @@ module.exports = {
 }
 ```
 
-因为是vue项目，所以我们需要安装 `vue-loader`、`vue-style-loader` 来识别 `vue` 单文件组件，并使用`html-webpack-plugin` 插件来将生成的主文件注入到 html 模板文件中。同时我们还需要在 plugins 中配置 ` new VueLoaderPlugin()`。
+因为是 vue 项目，所以我们需要安装 `vue-loader`、`vue-style-loader` 来识别 `vue` 单文件组件，并使用`html-webpack-plugin` 插件来将生成的主文件注入到 html 模板文件中。同时我们还需要在 plugins 中配置 `new VueLoaderPlugin()`。
 
 #### 2. 客户端配置
 
-首先安装  `vue-server-renderer` ，该npm包提供了 SSR 所需的 API 和 webpack 插件。
+首先安装 `vue-server-renderer` ，该 npm 包提供了 SSR 所需的 API 和 webpack 插件。
 
 ```shell
 npm install vue-server-renderer
@@ -231,7 +229,7 @@ module.exports = merge(baseConfig, {
 })
 ```
 
-`vue-ssr-client-manifest.json` 包含了webpack 整个构建过程中的所有信息，从而可以让 `bundle renderer` 自动推导需要在 `HTML` 模板中注入的内容。
+`vue-ssr-client-manifest.json` 包含了 webpack 整个构建过程中的所有信息，从而可以让 `bundle renderer` 自动推导需要在 `HTML` 模板中注入的内容。
 
 #### 3. 服务端配置
 
@@ -275,7 +273,7 @@ module.exports = merge(baseConfig, {
 打包出来的目录如下：
 
 ```
-├── dist							
+├── dist
 │   ├── index.html
 │   ├── main.app.js										# 打包出来的 js
 │   ├── vue-ssr-client-manifest.json	# 客户端配置生成的 manifest 文件
@@ -348,7 +346,7 @@ app.listen(3000, () => {
 })
 ```
 
-然后我们根据打包生成的 `vue-ssr-client-manifest.json` 和 `vue-ssr-server-bundle.json` 来生成 `bundle renderer` 实例。再通过  `bundle renderer` 实例所提供的 `API` 来将打包的 Vue 实例渲染成字符串，并返回给 `ctx`。
+然后我们根据打包生成的 `vue-ssr-client-manifest.json` 和 `vue-ssr-server-bundle.json` 来生成 `bundle renderer` 实例。再通过 `bundle renderer` 实例所提供的 `API` 来将打包的 Vue 实例渲染成字符串，并返回给 `ctx`。
 
 ```js
 const { createBundleRenderer } = require('vue-server-renderer')
@@ -386,7 +384,7 @@ app.use(async ctx => {
 
 ### 可能遇到的问题
 
-#### 问题1：`Uncaught SyntaxError: Unexpected token <`
+#### 问题 1：`Uncaught SyntaxError: Unexpected token <`
 
 如果没有在设置 `ctx.body` 之前使用 `app.use(serve('dist', { index: 'xxx.html' }))` 把 `dist` 文件夹下的文件设置为静态资源，那么 `chrome` 调试工具将会出现下图错误：
 ![Uncaught SyntaxError](https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/blog/Uncaught-SyntaxError.png)
@@ -400,7 +398,7 @@ app.use(async ctx => {
 
 ![noStaticSSR](https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/blog/noStaticSSR.png)
 
-从图中我们可以到浏览器成功的解析了HTML，并将其渲染到了网页上，但是接下来并没有进行客户端渲染的操作，让我们对比正确的刷新操作（如下图），我们可以发现，下图中间多了一段 `main.app.js` 执行的过程，而这段过程正是我们的客户端渲染的过程。
+从图中我们可以到浏览器成功的解析了 HTML，并将其渲染到了网页上，但是接下来并没有进行客户端渲染的操作，让我们对比正确的刷新操作（如下图），我们可以发现，下图中间多了一段 `main.app.js` 执行的过程，而这段过程正是我们的客户端渲染的过程。
 
 ![rightSSR](https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/blog/rightSSR.png)
 
@@ -421,11 +419,11 @@ app.use(serve('dist'))
 这个时候我们细心观察将会发现以下两个问题：
 
 1. 我们打开 `Sources` 会发现`index` 文件的内容变成了 `dist` 文件夹下 `index.html` 中的，反而是 `main.app.js` 倒是正确的加载出来了。
-2. `server.js` 的程序怎么都进不去 `在 koa 中间件中读取并设置网页内容` 这部分代码了（即27-42行）。
+2. `server.js` 的程序怎么都进不去 `在 koa 中间件中读取并设置网页内容` 这部分代码了（即 27-42 行）。
 
 其实从第一个点，我们可以看出来事实上我们已经成功地将 `dist` 文件下的文件设置为静态资源文件，而且应用程序也成功地读取到了需要的文件。但是 `koa-static` 有一个默认配置项是 [`index`](https://github.com/koajs/static#options)，默认值为 `index.html`，而且它是基于 `koa-send` 开发的，而 `koa-send` 有一个设定就是如果你传入的目录里面有你设置的 `index` 这个文件，那么它就会把这个文件设置为 `ctx.body`。
 
-而我们的 `dist` 文件夹中正好有一个 `index.html` 文件，所以  `koa-static`  在读取这个文件夹的时候就会把这个 `index.html` 文件返回给 `ctx.body`，同时不会进入下一个 `koa` 中间件，所以我们才会遇到上述两个问题。
+而我们的 `dist` 文件夹中正好有一个 `index.html` 文件，所以 `koa-static` 在读取这个文件夹的时候就会把这个 `index.html` 文件返回给 `ctx.body`，同时不会进入下一个 `koa` 中间件，所以我们才会遇到上述两个问题。
 
 同时浏览器在渲染了 `index.html` 并加载了 `main.app.js` 后就开始执行 `main.app.js`， `main.app.js`走的就是正常的客户端渲染，它是需要一个 `id=“app”` 的标签来承载内容的，而我们的 `index.htm`l 文件的 `body` 中空空如也，所以就报了上述错误。
 
@@ -434,4 +432,3 @@ app.use(serve('dist'))
 ```js
 app.use(serve('dist', { index: 'xxx.html' }))
 ```
-
