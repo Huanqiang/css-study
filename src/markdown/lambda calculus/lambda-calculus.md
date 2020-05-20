@@ -63,7 +63,7 @@
 
 `λ演算` 的三种表达式也可以这样表示：
 
-```
+```json
 <expression>  := <variable>
 <expression>  := λ <variable>.<expression>
 <expression>  := (<function> <expression>)
@@ -156,7 +156,7 @@ SUCC 3 = λn.λf.λx.f(n f x) (3)
 
 #### 加法
 
-```
+```scheme
 PLUS : λm.λn.λf.λx. m f(n f x)
 ```
 

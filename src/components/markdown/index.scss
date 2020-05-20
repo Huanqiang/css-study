@@ -44,7 +44,7 @@
     font-size: 0.87em;
     padding: 0.065em 0.4em;
     overflow-y: auto;
-    font-weight: 300;
+    font-weight: 600;
     // font-family: Menlo, monospace;
     background-color: #fff5f5;
   }
@@ -60,6 +60,18 @@
     padding-left: 8px;
   }
 
+  table {
+    margin: auto;
+    margin-bottom: 12px;
+    th,
+    td {
+      text-align: center;
+      padding: 3px 8px;
+    }
+    th {
+      border-bottom: 1px solid black;
+    }
+  }
   .hljs ul {
     list-style: decimal;
     margin: 0px 0px 0 40px !important;
