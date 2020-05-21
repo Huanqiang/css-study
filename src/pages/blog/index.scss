@@ -43,6 +43,10 @@
     width: auto;
     // height: 100vh;
     padding: 24px 16px 8px;
+    &-pagination {
+      display: flex;
+      justify-content: center;
+    }
   }
   &-item {
     display: flex;

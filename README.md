@@ -12,6 +12,8 @@
 - [x] 部署脚本优化(基于 gh-pages 进行发布操作)
 - [x] blog 看了多少，还剩多少功能
 - [x] 评论功能： > [https://github.com/gitalk/gitalk#install](https://github.com/gitalk/gitalk#install)
+- [ ] 文章标签和分类
+- [ ] 相关文章和推荐阅读
 
 ## 配置信息
 

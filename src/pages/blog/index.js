@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
+
 import BlogContent from './blogContent'
 import BlogBriefItem from './blogBriefItem'
 import GoToTop from '../../components/to-top'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import Profile from '../../components/profile-card'
+import Pagination from './pagination'
 
-import blogs from '../../markdown'
+import initBlogs from '../../markdown'
 import './index.scss'
 
 import config from '../../config'
+const defaultPageSize = 6
+const blogCount = initBlogs.length
 
 export default () => {
+  const [pageSize, setPageSize] = useState(defaultPageSize)
+  const [blogs, setBlogs] = useState(initBlogs.slice(0, defaultPageSize))
   let { url, path } = useRouteMatch()
+
+  const onChange = pageIndex => {
+    setBlogs(initBlogs.slice((pageIndex - 1) * pageSize, pageIndex * pageSize))
+  }
 
   return (
     <div className="blog">
@@ -40,6 +50,7 @@ export default () => {
                   key={blog.title}
                   imagePosition={index % 2 === 0 ? 'left' : 'right'}></BlogBriefItem>
               ))}
+              <Pagination total={blogCount} onChange={onChange} pageSize={pageSize} />
             </div>
           </Route>
           <Route path={`${path}/:title`}>
