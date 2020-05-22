@@ -1,13 +1,6 @@
----
-title: 初涉渐进式Web应用（简介）
-author: Huanqiang
-tags: [前端, 渐进式Web应用]
-categories: [前端]
-keyword: [前端, PWA, 渐进式Web应用]
-date: 2018-02-27 10:31:49
----
+# PWA
 
-## What is Progressive Web Apps？
+## What is Progressive Web Apps
 
 在移动端，我们习惯于浏览和使用原生 `App`，而很少使用手机自带的 `Web` 浏览器，比如 `iOS` 的 `Safari`。因为使用浏览器的话，我们还要输入网站地址，或者搜索到该网站，因为 `Web App` 不会像原生 `App` 一样出现在桌面上，这就是 **Web App 的入口问题**，而这也会让大部分用户望而却步。不仅如此，还存在一个更为重要的问题：**网络延迟所造成数据加载问题**，在原生 App 中，我们一打开应用就能看到操作界面，而 Web App 则不行，它必须要经过网络加载获取到 `HTML`、`JS`、`CSS` 后，才能显示操作页面，这期间用户就要忍受网络加载时的白屏界面。
 
@@ -44,8 +37,8 @@ App Mainfest 是一个 JSON 文件，里面包含了需要暴露给浏览器的�
 
 只需要在网站的每个页面头部添加一个 mainfest 连接即可：
 
-```
-<link rel="mainfest" href="/mainfest.json">
+```html
+<link rel="mainfest" href="/mainfest.json" />
 ```
 
 > [Web App Mainfest](https://www.w3.org/TR/appmanifest/)
@@ -62,13 +55,13 @@ App Mainfest 是一个 JSON 文件，里面包含了需要暴露给浏览器的�
 
 ### Hybrid（混合） App
 
-混合 App 使用 Web技术编写应用，然后通过中间技术在构建的时候生成不同平台的代码，并打包成各个平台的安装包。所以混合 App 只需要编写一次就能随处可用。
+混合 App 使用 Web 技术编写应用，然后通过中间技术在构建的时候生成不同平台的代码，并打包成各个平台的安装包。所以混合 App 只需要编写一次就能随处可用。
 
-而混合App 的不足之处则在于我们不能通过它构建各个平台特定的用户体验。
+而混合 App 的不足之处则在于我们不能通过它构建各个平台特定的用户体验。
 
 ### React Native
 
-参见 《 [[置顶\] React Native运行原理解析](http://blog.csdn.net/xiangzhihong8/article/details/52623852) 》
+参见 《 [[置顶\] React Native 运行原理解析](http://blog.csdn.net/xiangzhihong8/article/details/52623852) 》
 
 ### 参考资料
 

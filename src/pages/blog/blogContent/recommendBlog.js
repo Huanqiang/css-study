@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { TagFilled } from '@ant-design/icons'
 
 export default ({ blogTitles = [] }) =>
-  blogTitles && (
+  blogTitles.length !== 0 && (
     <div className="blog-content-recommends">
       <div className="blog-content-recommends-title">推荐阅读 </div>
       {blogTitles.map(title => (

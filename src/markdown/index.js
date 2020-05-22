@@ -44,7 +44,7 @@ export default [
     title: '初步了解PWA',
     img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200521171015.png',
     content: pwa.content,
-    tags: ['PWA'],
+    tags: ['PWA', '渐进式Web应用'],
     category: CATEGORIES.preFrontTechnology
   },
   {
@@ -58,7 +58,7 @@ export default [
     title: 'filter与fixed冲突的原因',
     img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200518200724.jpg',
     content: filterfFxed.content,
-    tags: ['filter', 'filter与fixed冲突的原因'],
+    tags: ['filter', 'fixed'],
     category: CATEGORIES.css
   },
   {

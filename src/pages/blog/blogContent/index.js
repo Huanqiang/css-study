@@ -38,8 +38,10 @@ export default () => {
         <Comment></Comment>
       </div>
       <div className="blog-content-slider">
-        <BlogMenu titles={titles} readProcess={scrollProcess}></BlogMenu>
-        <RecommendBlog blogTitles={recommendBlogTitles}></RecommendBlog>
+        <div className="blog-content-slider-sticky">
+          <BlogMenu titles={titles} readProcess={scrollProcess}></BlogMenu>
+          <RecommendBlog blogTitles={recommendBlogTitles}></RecommendBlog>
+        </div>
       </div>
     </div>
   )
