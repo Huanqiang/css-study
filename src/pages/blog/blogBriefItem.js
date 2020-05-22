@@ -18,7 +18,7 @@ const Image = ({ img, title }) => {
   )
 }
 
-export default ({ url, img, title, content, imagePosition = 'left' }) => {
+export default ({ url, img, title, content, category, tags, imagePosition = 'left' }) => {
   const [blog, setBlog] = useState('')
   useEffect(() => {
     // fetch(content)
@@ -33,6 +33,9 @@ export default ({ url, img, title, content, imagePosition = 'left' }) => {
         {imagePosition === 'left' && <Image img={img} title={title}></Image>}
         <div className="blog-item-brief">
           <div className="title">{title}</div>
+          <div className="category">
+            分类：{category} | 标签：{tags.join('，')}
+          </div>
           <div className="content">{blog}</div>
         </div>
         {imagePosition === 'right' && <Image img={img} title={title}></Image>}

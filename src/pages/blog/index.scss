@@ -105,13 +105,19 @@
     &-brief {
       // width: auto;
       padding: 48px 32px;
+      color: #4c4948;
       .title {
         margin-top: 8px;
         font-size: 32px;
         color: #4c4948;
+        margin-bottom: 8px;
+      }
+
+      .category {
+        font-size: small;
       }
       .content {
-        margin-top: 32px;
+        margin-top: 16px;
         color: #000000;
         display: -webkit-box;
         overflow: hidden;
