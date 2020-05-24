@@ -1,4 +1,3 @@
-import Home from './home/index.json'
 import location from './location/localtion.json'
 import bfc from './BFC/BFC.json'
 import pwa from './PWA/pwa-intro.json'
@@ -7,6 +6,7 @@ import filterfFxed from './filter-fixed/filter-fixed.json'
 import lambdaCalculus from './lambda calculus/lambda-calculus.json'
 import scaffold from './scaffold/scaffold.json'
 import vueSSRStudy from './vue-ssr-study-guide/vue-ssr-study-guide.json'
+import controlledComponents from './controlled-components-and-noncontrolled-components/controlled-components-and-noncontrolled-components.json'
 
 const CATEGORIES = {
   functionProgramme: '函数式编程',
@@ -41,13 +41,6 @@ export default [
     category: CATEGORIES.css
   },
   {
-    title: '初步了解PWA',
-    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200521171015.png',
-    content: pwa.content,
-    tags: ['PWA', '渐进式Web应用'],
-    category: CATEGORIES.preFrontTechnology
-  },
-  {
     title: 'ReactHook详解',
     img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200521171037.png',
     content: ReactHook.content,
@@ -62,6 +55,13 @@ export default [
     category: CATEGORIES.css
   },
   {
+    title: '受控组件与非受控组件',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200524084317.jpg',
+    content: controlledComponents.content,
+    tags: ['react', '受控组件', '非受控组件'],
+    category: CATEGORIES.react
+  },
+  {
     title: '搭建一个简易脚手架',
     img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200518200724.jpg',
     content: scaffold.content,
@@ -74,5 +74,12 @@ export default [
     content: vueSSRStudy.content,
     tags: ['vue', 'ssr'],
     category: CATEGORIES.vue
+  },
+  {
+    title: '初步了解PWA',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200521171015.png',
+    content: pwa.content,
+    tags: ['PWA', '渐进式Web应用'],
+    category: CATEGORIES.preFrontTechnology
   }
 ]
