@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Markdown from '../../../components/markdown'
 import BlogMenu from './blogMenu'
@@ -25,11 +25,15 @@ console.log(blogs)
 
 export default () => {
   let { title } = useParams()
+  const [recommendBlogTitles, setRecommendBlogTitles] = useState([])
   const curBlog = blogs.find(blog => blog.title === title)
   const content = curBlog.content
-  const recommendBlogTitles = getRecommendBlogs(curBlog, blogs)
   const titles = useHTMLTitles(content, defaultLevels)
   let scrollProcess = useScrollProcess()
+
+  useEffect(() => {
+    setRecommendBlogTitles(getRecommendBlogs(curBlog, blogs))
+  }, [curBlog])
 
   return (
     <div className="blog-content-container">
