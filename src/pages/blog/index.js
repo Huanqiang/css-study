@@ -17,19 +17,16 @@ const defaultPageSize = 6
 const blogCount = initBlogs.length
 
 export default () => {
-  const [pageSize, setPageSize] = useState(defaultPageSize)
   const [blogs, setBlogs] = useState(initBlogs.slice(0, defaultPageSize))
   let { url, path } = useRouteMatch()
 
   const onChange = pageIndex => {
-    setBlogs(initBlogs.slice((pageIndex - 1) * pageSize, pageIndex * pageSize))
+    setBlogs(initBlogs.slice((pageIndex - 1) * defaultPageSize, pageIndex * defaultPageSize))
   }
 
   return (
     <div className="blog">
-      <header style={{ backgroundImage: `url(${config.headerbg})` }}>
-        <Header></Header>
-      </header>
+      <Header img={config.headerbg}></Header>
       <div className="blog-container">
         <Switch>
           <Route exact path={path}>
@@ -50,7 +47,7 @@ export default () => {
                   key={blog.title}
                   imagePosition={index % 2 === 0 ? 'left' : 'right'}></BlogBriefItem>
               ))}
-              <Pagination total={blogCount} onChange={onChange} pageSize={pageSize} />
+              <Pagination total={blogCount} onChange={onChange} pageSize={defaultPageSize} />
             </div>
           </Route>
           <Route path={`${path}/:title`}>

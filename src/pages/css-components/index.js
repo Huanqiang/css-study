@@ -14,9 +14,7 @@ export default () => {
 
   return (
     <div className="component">
-      <header style={{ backgroundImage: `url(${config.headerbg})` }}>
-        <Header></Header>
-      </header>
+      <Header img={config.headerbg}></Header>
       <Switch>
         <Route exact path={path}>
           <div className="component-home">

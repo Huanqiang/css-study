@@ -17,23 +17,25 @@ const RouterItem = ({ title, path, Icon, style }) => (
   </div>
 )
 
-export default () => {
+export default ({ img, imgHeight }) => {
   return (
-    <div className="header">
-      <div className="header-menu">
-        {routers.map(router => (
-          <RouterItem
-            style={{ color: '#43515C' }}
-            key={router.title}
-            title={router.title}
-            Icon={router.Icon}
-            path={`${router.path}`}></RouterItem>
-        ))}
-      </div>
+    <header className="header" style={{ height: imgHeight, backgroundImage: `url(${img})` }}>
+      <div className="header-menu-container">
+        <div className="header-menu">
+          {routers.map(router => (
+            <RouterItem
+              style={{ color: '#43515C' }}
+              key={router.title}
+              title={router.title}
+              Icon={router.Icon}
+              path={`${router.path}`}></RouterItem>
+          ))}
+        </div>
 
-      <Link className="name" to="/blog">
-        Huanqiang's Blog
-      </Link>
-    </div>
+        <Link className="name" to="/blog">
+          Huanqiang's Blog
+        </Link>
+      </div>
+    </header>
   )
 }

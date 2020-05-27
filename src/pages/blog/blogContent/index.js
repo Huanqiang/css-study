@@ -21,7 +21,7 @@ const getRecommendBlogs = (curBlog, allBlogs) => {
   return [...new Set([...recommendTags, ...recommendCategories])].filter(title => title !== curBlog.title)
 }
 
-console.log(blogs)
+// console.log(blogs)
 
 export default () => {
   let { title } = useParams()

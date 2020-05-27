@@ -1,10 +1,14 @@
 .header {
-  // height: 50px;
-  padding: 16px;
+  background-size: cover;
+  height: 390px;
 
-  width: 100%;
-  background-color: rgba($color: #ffffff, $alpha: 0.4);
+  &-menu-container {
+    // height: 50px;
+    padding: 16px;
 
+    width: 100%;
+    background-color: rgba($color: #ffffff, $alpha: 0.4);
+  }
   &-menu {
     float: right;
     display: flex;
