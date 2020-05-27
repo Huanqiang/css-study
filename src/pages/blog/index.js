@@ -43,7 +43,7 @@ export default () => {
               {blogs.map((blog, index) => (
                 <BlogBriefItem
                   {...blog}
-                  url={url}
+                  url={url.lastIndexOf('/') === 0 ? url.slice(-1) : url}
                   key={blog.title}
                   imagePosition={index % 2 === 0 ? 'left' : 'right'}></BlogBriefItem>
               ))}

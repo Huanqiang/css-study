@@ -28,7 +28,7 @@ export default ({ url, img, title, content, category, tags, imagePosition = 'lef
   }, [content])
 
   return (
-    <Link to={`${url}/${title}`}>
+    <Link to={`${url.lastIndexOf('/') === url.length - 1 ? url.slice(0, url.length - 1) : url}/${title}`}>
       <div className="blog-item">
         {imagePosition === 'left' && <Image img={img} title={title}></Image>}
         <div className="blog-item-brief">

@@ -7,7 +7,7 @@ export default ({ blogTitles = [] }) =>
     <div className="blog-content-recommends">
       <div className="blog-content-recommends-title">推荐阅读 </div>
       {blogTitles.map(title => (
-        <Link to={title} key={title}>
+        <Link to={`/blog/${title}`} key={title}>
           <div className="blog-content-recommends-item">
             <TagFilled style={{ color: '#546C74', marginRight: '8px' }} /> 《{title}》
           </div>
