@@ -18,21 +18,20 @@ const Image = ({ img, title }) => {
   )
 }
 
-export default ({ url, img, title, content, category, tags, imagePosition = 'left' }) => {
+export default ({ url, img, title, path, content, category, tags, imagePosition = 'left' }) => {
   const [blog, setBlog] = useState('')
   useEffect(() => {
-    // fetch(content)
-    //   .then(res => res.text())
-    //   .then(text => setBlog(text))
     setBlog(transformToString(content))
   }, [content])
 
   return (
-    <Link to={`${url.lastIndexOf('/') === url.length - 1 ? url.slice(0, url.length - 1) : url}/${title}`}>
+    <Link to={`blog/${encodeURIComponent(path)}`}>
       <div className="blog-item">
         {imagePosition === 'left' && <Image img={img} title={title}></Image>}
         <div className="blog-item-brief">
-          <div className="title">{title}</div>
+          <div className="title" title={title}>
+            {title}
+          </div>
           <div className="category">
             分类：{category} | 标签：{tags.join('，')}
           </div>

@@ -13,26 +13,25 @@ import './index.scss'
 const defaultLevels = ['h2', 'h3']
 
 const getRecommendBlogs = (curBlog, allBlogs) => {
-  const recommendTags = allBlogs
-    .filter(blog => curBlog.tags.reduce((prev, tag) => prev || blog.tags.includes(tag), false))
-    .map(blog => blog.title)
-  console.log('recommendTags', recommendTags)
-  const recommendCategories = allBlogs.filter(blog => blog.category === curBlog.category).map(blog => blog.title)
-  return [...new Set([...recommendTags, ...recommendCategories])].filter(title => title !== curBlog.title)
+  const recommendBlogs = allBlogs.filter(blog =>
+    curBlog.tags.reduce((prev, tag) => prev || blog.tags.includes(tag), false)
+  )
+  const recommendCategories = allBlogs.filter(blog => blog.category === curBlog.category)
+  return [...new Set([...recommendBlogs, ...recommendCategories])].filter(blog => blog.title !== curBlog.title)
 }
 
 // console.log(blogs)
 
 export default () => {
   let { title } = useParams()
-  const [recommendBlogTitles, setRecommendBlogTitles] = useState([])
-  const curBlog = blogs.find(blog => blog.title === title)
+  const [recommendBlogs, setRecommendBlogs] = useState([])
+  const curBlog = blogs.find(blog => blog.path === title)
   const content = curBlog.content
   const titles = useHTMLTitles(content, defaultLevels)
   let scrollProcess = useScrollProcess()
 
   useEffect(() => {
-    setRecommendBlogTitles(getRecommendBlogs(curBlog, blogs))
+    setRecommendBlogs(getRecommendBlogs(curBlog, blogs))
   }, [curBlog])
 
   return (
@@ -44,7 +43,7 @@ export default () => {
       <div className="blog-content-slider">
         <div className="blog-content-slider-sticky">
           <BlogMenu titles={titles} readProcess={scrollProcess}></BlogMenu>
-          <RecommendBlog blogTitles={recommendBlogTitles}></RecommendBlog>
+          <RecommendBlog blogs={recommendBlogs}></RecommendBlog>
         </div>
       </div>
     </div>

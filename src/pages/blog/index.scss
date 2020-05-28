@@ -111,6 +111,10 @@
         font-size: 32px;
         color: #4c4948;
         margin-bottom: 8px;
+        width: 390px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
 
       .category {

@@ -117,6 +117,15 @@
 
     &-item {
       margin-bottom: 8px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      // &-title {
+      //   display: inline-block;
+      //   overflow: hidden;
+      //   white-space: nowrap;
+      //   text-overflow: ellipsis;
+      // }
     }
 
     a {
