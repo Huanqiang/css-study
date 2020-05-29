@@ -27,7 +27,7 @@ const getBlogRoutes = url => {
   return blogsStr
     .split(',')
     .map(item => item.trim())
-    .filter(item => item.split(':')[0] === 'title')
+    .filter(item => item.split(':')[0] === 'path')
     .map(item => item.split(':')[1].trim().replace(/'/g, ''))
     .map(item => 'blog/' + item)
 }

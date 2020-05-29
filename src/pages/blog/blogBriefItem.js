@@ -25,7 +25,7 @@ export default ({ url, img, title, path, content, category, tags, imagePosition 
   }, [content])
 
   return (
-    <Link to={`blog/${encodeURIComponent(path)}`}>
+    <Link to={`/blog/${encodeURIComponent(path)}`}>
       <div className="blog-item">
         {imagePosition === 'left' && <Image img={img} title={title}></Image>}
         <div className="blog-item-brief">
