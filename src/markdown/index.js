@@ -8,6 +8,7 @@ import scaffold from './scaffold/scaffold.json'
 import vueSSRStudy from './vue-ssr-study-guide/vue-ssr-study-guide.json'
 import controlledComponents from './controlled-components-and-noncontrolled-components/controlled-components-and-noncontrolled-components.json'
 import HeightAuto from './height-auto-and-percentage/height-auto-and-percentage.json'
+import WXApp from './wx-app/wx-app-underlying-framework.json'
 
 const CATEGORIES = {
   functionProgramme: '函数式编程',
@@ -27,6 +28,14 @@ export default [
     content: lambdaCalculus.content,
     tags: ['函数式编程', 'lambda 演算'],
     category: CATEGORIES.functionProgramme
+  },
+  {
+    title: '小程序底层框架',
+    path: 'wx-app-underlying-framework',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200603160306.jpg',
+    content: WXApp.content,
+    tags: ['小程序', '底层框架'],
+    category: CATEGORIES.preFrontTechnology
   },
   {
     title: '关于 height 100% 和 auto 的计算方式',
