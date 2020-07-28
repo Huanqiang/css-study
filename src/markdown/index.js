@@ -9,9 +9,10 @@ import vueSSRStudy from './vue-ssr-study-guide/vue-ssr-study-guide.json'
 import controlledComponents from './controlled-components-and-noncontrolled-components/controlled-components-and-noncontrolled-components.json'
 import HeightAuto from './height-auto-and-percentage/height-auto-and-percentage.json'
 import WXApp from './wx-app/wx-app-underlying-framework.json'
+import facadePatterns from './facade-patterns/facade-patterns.json'
 
 const CATEGORIES = {
-  functionProgramme: '函数式编程',
+  programmingParadigm: '编程范式',
   css: 'CSS',
   html: 'HTML',
   react: 'react',
@@ -27,7 +28,15 @@ export default [
     img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200521171048.jpg',
     content: lambdaCalculus.content,
     tags: ['函数式编程', 'lambda 演算'],
-    category: CATEGORIES.functionProgramme
+    category: CATEGORIES.programmingParadigm
+  },
+  {
+    title: '外观模式',
+    path: 'facade-patterns',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200728154226.jpeg',
+    content: facadePatterns.content,
+    tags: ['设计模式'],
+    category: CATEGORIES.programmingParadigm
   },
   {
     title: '小程序底层框架',
