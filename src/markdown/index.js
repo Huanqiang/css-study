@@ -1,3 +1,4 @@
+// New Blog Path
 import location from './location/localtion.json'
 import bfc from './BFC/BFC.json'
 import pwa from './PWA/pwa-intro.json'
@@ -18,7 +19,8 @@ const CATEGORIES = {
   react: 'react',
   vue: 'vue',
   nodejs: 'nodejs',
-  preFrontTechnology: '前沿技术'
+  preFrontTechnology: '前沿技术',
+  js: 'js'
 }
 
 export default [
