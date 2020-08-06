@@ -488,7 +488,8 @@ module.exports = function (webpackEnv) {
     plugins: [
       // 终端进度条显示
       isEnvProduction && new ProgressBarPlugin(),
-      isEnvProduction && new BundleAnalyzerPlugin(),
+      // 需要优化build 时时打开
+      // isEnvProduction && new BundleAnalyzerPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
