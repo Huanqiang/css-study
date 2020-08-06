@@ -9,12 +9,11 @@
 - [x] 菜单栏
 - [x] 回到最上方按钮
 - [x] blog 加载 markdown 的性能优化
-- [x] 部署脚本优化(基于 gh-pages 进行发布操作)
+- [x] 部署脚本优化(基于 gh-pages 进行发布操作，将 highlight 使用 cdn 引入，减少编译时间)
 - [x] blog 看了多少，还剩多少功能
 - [x] 评论功能： > [https://github.com/gitalk/gitalk#install](https://github.com/gitalk/gitalk#install)
 - [x] 新增自动化生成对应 blog 信息
-- [ ] 文章标签和分类
-- [ ] 相关文章和推荐阅读
+- [x] 文章标签和分类
 
 ## 配置信息
 

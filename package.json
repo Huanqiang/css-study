@@ -78,7 +78,8 @@
     "publish": "gh-pages -b master -d build -r git@github.com:Huanqiang/Huanqiang.github.io.git",
     "deploy:pre": "node scripts/pre-deploy.js",
     "deploy": "yarn run build && yarn run deploy:pre && yarn run publish",
-    "addBlog": "plop"
+    "addBlog": "plop",
+    "analyzer": "cross-env GENERATE_SOURCEMAP=false ANALYZER=true node scripts/build.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -153,10 +154,14 @@
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "cross-env": "^7.0.2",
     "gh-pages": "^2.2.0",
     "glob": "^7.1.6",
     "inquirer-fuzzy-path": "^2.3.0",
     "node-fetch": "^2.6.0",
-    "plop": "^2.7.3"
+    "plop": "^2.7.3",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12"
   }
 }

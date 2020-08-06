@@ -1,4 +1,7 @@
 // New Blog Path
+import builderPattern from './builder-pattern/builder-pattern.json'
+import chainOfResponsibility from './ChainOfResponsibility/chain-of-responsibility.json'
+import ReactRef from './react-ref/React-Ref.json'
 import location from './location/localtion.json'
 import bfc from './BFC/BFC.json'
 import pwa from './PWA/pwa-intro.json'
@@ -24,6 +27,30 @@ const CATEGORIES = {
 }
 
 export default [
+  {
+    title: '生成器模式',
+    path: 'builder-pattern',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200728154226.jpeg',
+    content: builderPattern.content,
+    tags: ['设计模式', '生成器模式'],
+    category: CATEGORIES.programmingParadigm
+  },
+  {
+    title: '责任链模式',
+    path: 'chain-of-responsibility',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200728154226.jpeg',
+    content: chainOfResponsibility.content,
+    tags: ['设计模式', '责任链模式'],
+    category: CATEGORIES.programmingParadigm
+  },
+  {
+    title: 'React Ref 使用总结',
+    path: 'React-Ref',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200729102701.png',
+    content: ReactRef.content,
+    tags: ['react', 'ref'],
+    category: CATEGORIES.react
+  },
   {
     title: 'lambda 演算',
     path: 'lambda-calculus',
