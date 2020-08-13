@@ -13,7 +13,7 @@ import initBlogs from '../../markdown'
 import './index.scss'
 
 import config from '../../config'
-const defaultPageSize = 6
+const defaultPageSize = config.defaultPageSize
 const blogCount = initBlogs.length
 
 export default () => {

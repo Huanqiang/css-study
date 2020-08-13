@@ -30,7 +30,7 @@ export default [
   {
     title: '生成器模式',
     path: 'builder-pattern',
-    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200728154226.jpeg',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200807093815.png',
     content: builderPattern.content,
     tags: ['设计模式', '生成器模式'],
     category: CATEGORIES.programmingParadigm
@@ -38,7 +38,7 @@ export default [
   {
     title: '责任链模式',
     path: 'chain-of-responsibility',
-    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200728154226.jpeg',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200807093815.png',
     content: chainOfResponsibility.content,
     tags: ['设计模式', '责任链模式'],
     category: CATEGORIES.programmingParadigm
@@ -62,7 +62,7 @@ export default [
   {
     title: '外观模式',
     path: 'facade-patterns',
-    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200728154226.jpeg',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200807093815.png',
     content: facadePatterns.content,
     tags: ['设计模式'],
     category: CATEGORIES.programmingParadigm

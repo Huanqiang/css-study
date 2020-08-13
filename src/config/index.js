@@ -23,5 +23,6 @@ export default {
     repo: 'blog-comment',
     owner: 'Huanqiang',
     admin: ['Huanqiang']
-  }
+  },
+  defaultPageSize: 8
 }

@@ -6,24 +6,24 @@ import Components from '../pages/css-components/index'
 import { BookOutlined, PartitionOutlined, ExclamationCircleOutlined, HomeOutlined } from '@ant-design/icons'
 
 export default [
-  {
-    path: '/',
-    component: Home,
-    Icon: HomeOutlined,
-    title: '主页'
-  },
+  // {
+  //   path: '/',
+  //   component: Blog,
+  //   Icon: HomeOutlined,
+  //   title: '主页'
+  // },
   {
     path: '/blog',
     component: Blog,
     Icon: BookOutlined,
     title: '博客'
   },
-  {
-    path: '/components',
-    component: Components,
-    Icon: PartitionOutlined,
-    title: '组件库'
-  },
+  // {
+  //   path: '/components',
+  //   component: Components,
+  //   Icon: PartitionOutlined,
+  //   title: '组件库'
+  // },
   {
     path: '/about',
     component: About,
