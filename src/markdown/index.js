@@ -1,4 +1,5 @@
 // New Blog Path
+import rollupBuild from './rollup-build/rollup-build.json'
 import builderPattern from './builder-pattern/builder-pattern.json'
 import chainOfResponsibility from './ChainOfResponsibility/chain-of-responsibility.json'
 import ReactRef from './react-ref/React-Ref.json'
@@ -27,6 +28,14 @@ const CATEGORIES = {
 }
 
 export default [
+  {
+    title: 'rollup 打包配置',
+    path: 'rollup-build',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20210425113543.jpeg',
+    content: rollupBuild.content,
+    tags: ['rollup', 'webpack', '模块'],
+    category: CATEGORIES.preFrontTechnology
+  },
   {
     title: '生成器模式',
     path: 'builder-pattern',

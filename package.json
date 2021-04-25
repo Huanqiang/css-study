@@ -75,7 +75,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "build:blog": "node scripts/build-blog.js",
-    "publish": "gh-pages -b master -d build -r git@github.com:Huanqiang/Huanqiang.github.io.git",
+    "publish": "gh-pages -b master -d build -r https://github.com/Huanqiang/Huanqiang.github.io.git",
     "deploy:pre": "node scripts/pre-deploy.js",
     "deploy": "yarn run build && yarn run deploy:pre && yarn run publish",
     "addBlog": "plop",
