@@ -1,3 +1,4 @@
+#!/bin/bash
 cd ~/Documents/Project/React/css-study
 yarn build:blog
 yarn addBlog

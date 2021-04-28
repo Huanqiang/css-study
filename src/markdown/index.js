@@ -1,4 +1,5 @@
 // New Blog Path
+import performanceOptimize from './performance-optimize/performance-optimize.json'
 import rollupBuild from './rollup-build/rollup-build.json'
 import builderPattern from './builder-pattern/builder-pattern.json'
 import chainOfResponsibility from './ChainOfResponsibility/chain-of-responsibility.json'
@@ -28,6 +29,14 @@ const CATEGORIES = {
 }
 
 export default [
+  {
+    title: '性能优化',
+    path: 'performance-optimize',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20210428153741.png',
+    content: performanceOptimize.content,
+    tags: ['performance', 'lighthouse'],
+    category: CATEGORIES.preFrontTechnology
+  },
   {
     title: 'rollup 打包配置',
     path: 'rollup-build',

@@ -49,6 +49,9 @@
     // font-family: Menlo, monospace;
     background-color: #fff5f5;
   }
+  p {
+    word-break: break-word;
+  }
   p.markdown-img-container {
     text-align: center;
     img {
