@@ -1,4 +1,5 @@
 // New Blog Path
+import xssCsrf from './xss-csrf/xss-csrf.json'
 import performanceOptimize from './performance-optimize/performance-optimize.json'
 import rollupBuild from './rollup-build/rollup-build.json'
 import builderPattern from './builder-pattern/builder-pattern.json'
@@ -29,6 +30,14 @@ const CATEGORIES = {
 }
 
 export default [
+  {
+    title: 'XSS 和 CSRF',
+    path: 'xss-csrf',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20210429161641.png',
+    content: xssCsrf.content,
+    tags: ['xss', 'csrf'],
+    category: CATEGORIES.preFrontTechnology
+  },
   {
     title: '性能优化',
     path: 'performance-optimize',
