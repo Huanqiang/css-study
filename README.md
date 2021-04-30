@@ -44,7 +44,11 @@
 
 ## 写博客
 
-ps：以下手动操作废弃，现在只需要 将博客放在 `src/markdown` 对应的文件夹中，注意 blog 命名为 `xxx-yyy.md`，然后运行 `scripts/newBlog.sh` 即可，该文件可复制出去，在任意位置执行；
+ps：以下手动操作废弃，现在只需要 将博客放在 `src/markdown` 对应的文件夹中，注意 blog 命名为 `xxx-yyy.md`，然后运行 `scripts/newBlog.sh` 即可，该文件可复制出去，在任意位置执行。
+
+关于图片，只要图片放在对应的 `blog` 文件夹下，会被自动上传至 `github` 图床中。
+
+手动操作流程如下：
 
 1. 博客可写在 `src/markdown` 文件夹中；
 2. 执行 `yarn build:blog` 将 markdown 编译成包含 html 的 json 文件（在执行 `yarn build:blog` 时，会将 md 中的本地图片自动上传至你指定的 github 仓库中，并修改相应的 md 文件；）；
