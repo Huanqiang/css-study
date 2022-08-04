@@ -1,4 +1,5 @@
 // New Blog Path
+import howToUseEffect from './how-to-use-effect/how-to-use-effect.json'
 import xssCsrf from './xss-csrf/xss-csrf.json'
 import performanceOptimize from './performance-optimize/performance-optimize.json'
 import rollupBuild from './rollup-build/rollup-build.json'
@@ -30,6 +31,14 @@ const CATEGORIES = {
 }
 
 export default [
+  {
+    title: '关于 useEffect 的使用场景',
+    path: 'how-to-use-effect',
+    img: 'https://cdn.jsdelivr.net/gh/Huanqiang/imgBed/img/20200518200724.jpg',
+    content: howToUseEffect.content,
+    tags: ['react', 'useEffect'],
+    category: CATEGORIES.react
+  },
   {
     title: 'XSS 和 CSRF',
     path: 'xss-csrf',
